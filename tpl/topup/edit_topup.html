@@ -1,0 +1,71 @@
+<tmpl_var 'INCL:/common/header'>
+<style type="text/css">
+        table td{border:2px;}                   
+</style> 
+<h3>Edit Topup Request</h3>
+<br>
+<form>
+<table width=30%>
+<tr>
+	<td> ro number </td>
+	<td> 
+		<input type=text name=rs_number value=<tmpl_var rs_number>>
+	</td>
+</tr>
+<tr>
+        <td>&nbsp;</td><td><input type=submit value=submit></td>
+</tr>
+</table>
+</form>
+<FORM method=POST action="/modify/topup/edit_topup_request">
+<input type=hidden name=page value=<tmpl_var page>>
+<input type=hidden name=items value=<tmpl_var items>>
+
+<table class="list" id="gradient-style"  summary="topuplist list">
+<tr>
+<td align ="right" colspan ="<tmpl_var count>"> <tmpl_var nav> </td>
+</tr>
+<th rowspan=2>#</th>
+<th rowspan=2>ro number</th>
+<tmpl_loop amount>
+<th colspan="<tmpl_var amounttype>">Stock Ref</th>
+</tmpl_loop>
+<tr>
+<tmpl_loop stock_name>
+<th id="topup_request"><tmpl_var stock_ref_name> </th>
+</tmpl_loop>
+
+</tr>
+</tr>
+
+<tmpl_loop list>
+<tr>
+<input type=hidden name=rs_id value=<tmpl_var rs_id> >
+<td><tmpl_var _seq></td>
+<td><tmpl_var rs_number></td>
+<tmpl_var qty>
+<tr>
+</tmpl_loop>
+<tr>
+	<td>#</td><td align=center> total qty</td><tmpl_loop list_sigma><td><tmpl_var sigma></td></tmpl_loop>
+</tr>
+</table>
+<div style=>
+		<tmpl_loop stock_name>
+			<input type=hidden name='stock_ref_name' value='<tmpl_var stock_ref_name>'>
+		</tmpl_loop>
+		<tmpl_loop list>
+			<input type=hidden name='rs_number' value='<tmpl_var rs_number>'>
+		</tmpl_loop>
+		<input type=submit value='update'> 
+		<input type=submit value='inject' onClick="this.form.action='/modify/topup/inject_topup_request'">
+		<input type=submit value='inject all' onClick="this.form.action='/modify/topup/inject_all_topup_request'">
+		<input type=submit value='delete upload' onClick="this.form.action='/modify/topup/delete_upload'">
+</div>
+
+		<!--<input type=submit value='delete member type' onClick="this.form.action='/modify/member/del_type.evo'">-->
+
+
+</form>
+<tmpl_var 'INCL:/common/footer'>
+

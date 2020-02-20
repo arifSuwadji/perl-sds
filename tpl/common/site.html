@@ -1,0 +1,4 @@
+			<select name=site_id> <option value=0> ALL </option>
+                <tmpl_loop site_options>
+                <option value=<tmpl_var value> <tmpl_if selected> selected</tmpl_if> ><tmpl_var display> </option></tmpl_loop>
+                </select>

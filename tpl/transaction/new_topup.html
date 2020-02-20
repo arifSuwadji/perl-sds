@@ -1,0 +1,45 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>new topup</h3>
+
+<form action="/modify/transaction/inject">
+<table width=60%>
+<tr>
+	<td> product </td>
+	<td> <select name=product>
+		<option value=0></option>
+		<tmpl_loop list_keyword>
+		<option value='<tmpl_var stock_ref_id>'><tmpl_var keyword></option>
+		</tmpl_loop>
+	</td>
+</tr>
+<tr>
+	<td> package </td>
+        <td> <select name=pkg_id>
+                <option value=0></option>
+                <tmpl_loop list_package>
+                <option value='<tmpl_var pkg_id>'><tmpl_var pkg_name></option>
+                </tmpl_loop>
+        </td>
+</tr>
+<tr>
+	<td> destination rs number </td>
+	<td> <input type=text name=rs_number value=''>&nbsp;(e.g.: 0817xxx)</td>	
+</tr> 
+<tr> 
+	<td> quantity / amount </td>
+	<td> <input type=text name=qty value='' size =10> </td>
+</tr>
+<tr>
+	<td>trx hp</td>
+	<td><input type=text name=hp_sales value=''>&nbsp;(e.g.: 0817xxx)</td>
+</tr>
+<tr>
+        <td> &nbsp; </td>
+        <td> <input type=submit name=submit value=inject></td>
+</tr>
+<tr>
+	<td colspan=2 style="color:red;font-weight:bold;" ><tmpl_var error></td>
+</tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

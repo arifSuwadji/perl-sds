@@ -1,0 +1,137 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>detail member <tmpl_var member_name></h3>
+<div class="nav_left"><a href="/view/admin/list?member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>">List Admin</a>
+<tmpl_if bm> |<a href="/view/member/additional_list?member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>">List additional user</a></tmpl_if></div>
+<form name=delete_username action='/modify/member/delete_username'>
+<input type=hidden name=member_id value='<tmpl_var member_id>'>
+<input type=hidden name=member_name value='<tmpl_var member_name>'>
+<table class="list" cellspacing=2 width='60%'>
+
+<tr>
+   <th> # </th>
+   <th> Username </th>
+   <th> Pin </th>
+   <th> Status </th>
+   <th> Action </th>
+</tr>
+
+<tmpl_loop list_user>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td align=center><tmpl_var username></td>
+	<td align=center><tmpl_var pin></td>
+	<td align=center><tmpl_var status> | <a href='/modify/member/ubah_status?user_id=<tmpl_var user_id>&member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>'>Ubah status</a></td>
+	<td align=center><input type=checkbox name=user_id value='<tmpl_var user_id>'>
+</tr>
+</tmpl_loop>
+<tr>
+	<td colspan=4>&nbsp;</td><td align=center><input type=submit value='delete'>
+	</td>
+</tr>
+</table>
+</form>
+<br/>
+<table width=80%><tr><td>
+<table width=50%>
+<form name=add_username action='/modify/member/add_username'>
+<input type=hidden name=id value='<tmpl_var member_id>'>
+<input type=hidden name=member_name value='<tmpl_var member_name>'>
+<tr>
+	<td>Topup Number </td><td>&nbsp; : &nbsp;</td><td><input type=text name=username value=''> (ex.:62817xxxxx)</td>
+</tr>
+<tr>
+	<td>pin </td><td>&nbsp; : &nbsp;</td><td><input type=text name=pin value=''></td>
+</tr>
+
+<tr>
+	<td>status</td><td>&nbsp; : &nbsp;</td><td><select name=status>
+			<option value=0>select status</option>
+			<option value=1>Active</option>
+			<option value=2>non-Active</option>
+			</select></td>
+</tr>
+<tr><td colspan="3">&nbsp;</td></tr>
+<tr>	
+	<td>&nbsp;</td><td>&nbsp; </td><td><input type=submit name=op value='add number'></td>
+	
+<tr>
+</form>
+</table>
+</td><td><table width=50%>
+<h3>Upload target <tmpl_var member_name> | <a href="/view/member/detail_target?member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>">Detail Target</a></h3>
+<form enctype='multipart/form-data' method=POST action="/modify/member/upload_target">
+<tr>
+	<td>File name (*.csv)</td>
+	<td> <input type="file" name="file1"><br>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td><input type=submit name= submit value=Upload></td>
+	<input type=hidden name=member_id value='<tmpl_var member_id>'>
+	<input type=hidden name=member_name value='<tmpl_var member_name>'>
+<tr></form>
+</table></td></tr></table>
+<br/>
+
+<h3>List ro</h3>
+<form><table width=47%><tr><td><table width=60%>
+<tr><td>
+	<td> ro-number </td>
+	<td><input type=text name=rs_number value=<tmpl_var rs_number>></td>
+</td></tr>
+<tr><td>
+	<td> outlet </td>
+	<td><input type=text name=outlet_name value=<tmpl_var outlet_name>></td>
+</td></tr>
+<tr><td>
+	<td>&nbsp;</td><td><input type=submit name=op value='submit'></td>
+</td></tr>
+</table></td></tr></table></form>
+<br/>
+<div align=middle><tmpl_var nav></div>
+<form name=rs_chip action='/modify/rs_chip/delete_member_id'>
+<input type=hidden name=member_id value='<tmpl_var member_id>'>
+<input type=hidden name=member_name value='<tmpl_var member_name>'>
+<table class="list" cellspacing=2 width='60%'>
+
+<tr>
+   <th> # </th>
+   <th> ro-number </th>
+   <th> outlet </th>
+   <th> ro-type </th>
+   <th> action </th>
+</tr>
+
+<tmpl_loop list_rs_chip>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td align=center><tmpl_var rs_number></td>
+	<td align=left><tmpl_var outlet_name></td>
+	<td align=center><tmpl_var type_name> <!-- | <a href='/modify/member/ubah_type?rs_id=<tmpl_var rs_id>&member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>'>Ubah status</a> --></td>
+	<td align=center>
+	<!-- <a href='/modify/member/edit_rs?rs_id=<tmpl_var rs_id>&member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>'>Edit</a> -->
+	<input type=checkbox name=rs_id value='<tmpl_var rs_id>'></td>
+</tr>
+</tmpl_loop>
+<tr>
+	<td colspan=4>&nbsp;</td><td align=center><input type=submit value='delete'>
+	</td>
+</tr>
+</table>
+</form>
+<br/><br/>
+<table>
+<form name=add_username action='/modify/rs_chip/add_member_id'>
+<input type=hidden name=member_id value='<tmpl_var member_id>'>
+<input type=hidden name=member_name value='<tmpl_var member_name>'>
+<tr>
+	<td>ro-number </td><td>&nbsp; : &nbsp;</td><td><input type=text name=rs_number value=''> (ex.:62817xxxxxx)</td>
+</tr>
+<tr><td colspan="3">&nbsp;</td></tr>
+<tr>	
+	<td>&nbsp;</td><td><td><input type=submit name=op value='add rs chip'></td>
+<tr>
+</form>
+</table>
+
+<tmpl_var 'INCL:/common/footer'>

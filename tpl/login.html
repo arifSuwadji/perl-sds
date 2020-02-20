@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Please Login .:SDS:.</title>
+<style type="text/css">
+body{font-family:10px "Segoe UI", "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;}
+
+
+h1 {    
+	top:100px;
+	left:30px;
+	font-family: "Segoe UI";
+	font-size:40px;
+        text-shadow: #65a9d7 0px 4px 10px;
+        color: blue;
+        display:block;
+	position:absolute;
+}
+form {  height:450px;
+	width:300px;
+	padding:100px 10px 0px 10px;
+	float:right;
+	font-weight:normal;
+	background: url(/images/logo.png)top left no-repeat,; /* old browsers */
+	background: url(/images/logo.png) bottom right no-repeat, -moz-linear-gradient(top, #0048a0 10%, #ffffff 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a3ccdd), color-stop(100%,#0048a0)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3ccdd', endColorstr='#0048a0',GradientType=0 ); /* ie */
+	z-index:-100;
+	margin-right:80px;
+}
+form .submit .align{float:left;}
+form p{
+font-family:"Segoe UI";
+font-size:12px;
+margin-bottom:14px;}
+label{
+color:#ffffff;
+font-family: "Segoe UI";
+font-size:24px;
+}
+</style>
+
+<body>
+<h1>Stock Distribution System</h1>
+
+<FORM method=POST action='/modify/login'>
+			<label>Please Login</label>
+                          <p>USER NAME :</p>
+                          <INPUT name=username><br/>
+                          <p>PASSWORD :</p>
+                          <INPUT type=password name=password>
+			  <label>  </label><br/><br/>
+                          <INPUT type=submit value=Login name=op>
+<input type=hidden name=url value='<TMPL_VAR url>'>
+
+</FORM>
+</body>
+</html>

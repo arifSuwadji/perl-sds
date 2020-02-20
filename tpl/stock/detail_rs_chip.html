@@ -1,0 +1,25 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>detail stok <tmpl_var rs_name></h3>
+
+
+<table border=0 cellspacing=2 cellpadding=0 width='80%'>
+
+<tr>
+   <th> # </th>
+   <th> stock ref name </th>
+   <th> keyword </th>
+   <th> price </th>
+   <th> quantity </th>
+</tr>
+
+<tmpl_loop list_product>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var stock_ref_name></td>
+	<td><tmpl_var keyword></td>
+	<td><tmpl_var price></td>
+	<td align=center><tmpl_var qty></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

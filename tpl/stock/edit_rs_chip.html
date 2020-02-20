@@ -1,0 +1,40 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit RS-Chip </h3>
+
+
+<form action='/modify/stock/edit_rs_chip'>
+<input type=hidden name=sd_id value='<tmpl_var sd_id>'>
+<input type=hidden name=sd_name value='<tmpl_var sd_name>'>
+<input type=hidden name=rs_id value='<tmpl_var rs_id>'>
+<table width='40%'>
+<tr><td> Rs chip number </td><td> <input style="background-color:#ffffff;" type=text name=rs_chip value='<tmpl_var rs_number>' disabled></td></tr>
+<tr><td> Rs ID </td><td> <input style="background-color:#ffffff;" type=text name=rs_outlet_id value='<tmpl_var rs_outlet_id>'></td></tr>
+<input style="background-color:#ffffff;" type=hidden name=rs_chip value='<tmpl_var rs_number>'</input>
+<!--<tr><td> Outlet name </td><td> <input style="background-color:#ffffff;" type=text name=outlet value='<tmpl_var outlet_name>'</td></tr>--!>
+<tr><td>Outlet name</td><td><select name="outlet_id"><option value="<tmpl_var outlet_id>"><tmpl_var outlet_name></option>
+<tmpl_loop res_outlet><option value="<tmpl_var outlet_id>"><tmpl_var outlet_name></option></tmpl_loop></select></td></tr>
+<tr><td> Outlet ID </td><td> <input type=text name=outlet_id value='<tmpl_var outlet_id>' disabled></td></tr>
+<input type=hidden name=ref_type_id value='<tmpl_var ref_type_id>'</input>
+<tr><td> Type </td><td><select name=rs_type_id>
+		<tmpl_loop rs_type_options>
+		<option value='<tmpl_var rs_type_id>' <tmpl_if selected>selected</tmpl_if>><tmpl_var type_name></option> 
+		</tmpl_loop>
+		</select>
+		 </td></tr>
+<tr><td> Move to sd : </td><td><select name=move_sd_id>
+                <tmpl_loop sd_chip_options>
+                <option value='<tmpl_var sd_id>' <tmpl_if selected>selected</tmpl_if>><tmpl_var sd_name></option>
+                </tmpl_loop>
+                </select>
+                 </td></tr>
+<tr><td> Move to member : </td><td><select name=member_id>
+                <tmpl_loop member_options>
+                <option value='<tmpl_var member_id>' <tmpl_if selected>selected</tmpl_if>><tmpl_var member_name></option>
+                </tmpl_loop>
+                </select>
+                 </td></tr>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'></td></tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

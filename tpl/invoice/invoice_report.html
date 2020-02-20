@@ -1,0 +1,52 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3>Invoice Report</h3>
+
+<form>
+<table width=100%><tr valign="top"><td><table width="100%">
+<tr>
+	<td> invoice date </td>
+	<td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value="<tmpl_var until>"></td>	
+</tr>
+<tr>
+        <td> member name </td>
+        <td> <input type=text name=member_name value=<tmpl_var member_name>></td>
+</tr>
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table></td>
+<td><table width="50%">
+<tr>
+	<td>balance invoice : </td>
+	<td><tmpl_var balance></td>
+</tr>
+</table></td>
+</tr></table>
+</form>
+
+<div class="nav_right"><tmpl_var nav></div>
+<table class="list" cellspacing=2 width='100%'>
+<tr>
+	<th>No</th>
+	<th>Member Name</th>
+	<th>Outlet Name</th>
+	<th>Inv-date</th>
+	<th>Due Date</th>
+	<th>Invoice Number</th>
+	<th>Amount</th>
+</tr>
+<tmpl_loop list>
+<tr>
+	<td><tmpl_var _seq></td>
+	<td><tmpl_var member_name></td>
+	<td><tmpl_var outlet_name></td>
+	<td align="center"><tmpl_var inv_date></td>
+	<td align="center"><tmpl_var due_date></td>
+	<td align="center"><tmpl_var invoice_number></td>
+	<td align="right"><tmpl_var amount></td>
+</tr>
+</tmpl_loop>
+</table>
+
+<tmpl_var 'INCL:/common/footer'>

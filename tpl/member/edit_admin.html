@@ -1,0 +1,18 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit Member </h3>
+
+
+<form action='/modify/admin/edit_admin'>
+<table>
+<tmpl_loop list_admin>
+<tr><td> Admin Name </td><td> <input type=text name=admin_name value='<tmpl_var admin_name>'></td></tr>
+<tr><td> Password </td><td> <input type=password name=admin_password1 value=''></td></tr>
+<tr><td> Retype-Password </td><td> <input type=password name=admin_password2 value=''></td></tr>
+</tmpl_loop>
+<input type=hidden name=admin_id value='<tmpl_var id>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'></td></tr>
+</table>
+</form>
+
+
+<tmpl_var 'INCL:/common/footer'>

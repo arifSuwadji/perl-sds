@@ -1,0 +1,21 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>List sub-Master Type</h3>
+
+<a href='/view/stock/add_type'>Add sub-Master Type</a>
+
+<table border=0 cellspacing=2 cellpadding=0 width='60%'>
+<tr> 
+	<th>#</th><th> type name </th><th> action </th>
+<tmpl_loop list_sd_type>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var sd_type_name></td>
+	<td align=center>
+		<a href='/view/stock/edit_type?id=<tmpl_var sd_type_id>'>Edit</a> | 
+		<a href='/modify/stock/delete_type?id=<tmpl_var sd_type_id>'>Delete</a>
+	</td>
+	
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

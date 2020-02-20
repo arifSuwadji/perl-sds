@@ -1,0 +1,43 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit Member </h3>
+
+<TABLE width=100%><tr><td width=50%>
+<form action='/modify/member/edit_member'>
+<table width='80%'>
+<tr><td> Member Name </td><td> <input type=text name=member_name value='<tmpl_var member_name>'></td></tr>
+<tr><td> Upline Name </td><td> <input type=text name=upline_name value='<tmpl_var mname>'></td></tr>
+<tr><td> Member Target</td><td><input type=text name=target value='<tmpl_var target>'></td></tr>
+<tr><td> Member Type</td>
+	<td><select name=type>
+		<option value="CVS"<tmpl_if cvs> selected</tmpl_if>>CVS</option>
+		<option value="SPV"<tmpl_if spv> selected</tmpl_if>>SPV</option>
+		<option value="BM"<tmpl_if bm> selected</tmpl_if>>BM</option>
+	</td>
+</tr>
+<tr><td> Member Site </td><td> <select name=site_id>
+				<tmpl_loop site_options>
+				<option value='<tmpl_var site_id>' <tmpl_if selected>selected</tmpl_if>> <tmpl_var site_name></option>
+				</tmpl_loop>
+				 </select></td></tr>
+<input type=hidden name=member_id value='<tmpl_var id>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'></td></tr>
+</form>
+</table></td>	
+<td width=50% valign=middle>
+
+<form action='/modify/member/edit_member'>
+<table width=50%>
+<tr><td>Add Dompul</td><td>:<input type=text name=add_product value=""></td></tr>
+<tr><td colspan=3 align=right><input type=submit name=op value='Add'></td></tr>
+<tr><td colspan=5>&nbsp;<hr></td></tr>
+		<tmpl_loop ref_type_name><tr>
+			<td><a href='/view/member/edit_dompul_name?id=<tmpl_var ref_type_id>'><tmpl_var ref_type_name></a></td>
+			<td>:<input type=text name="stock<tmpl_var ref_type_id>" value="" size=5></td>
+			<td><input type=checkbox name=cb_stock class="case" value="<tmpl_var ref_type_id>"></td>
+		</tr></tmpl_loop>
+		<tr><td colspan=5>&nbsp;<hr></td></tr>
+	<tr><td colspan=3 align=right><input type=submit name=op value="Update qty"></td></tr>
+	<input type=hidden name=member_id value='<tmpl_var id>'>
+</table></form></td>
+</TABLE>
+<tmpl_var 'INCL:/common/footer'>

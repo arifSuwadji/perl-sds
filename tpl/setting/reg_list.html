@@ -1,0 +1,66 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Perdana List</h3>
+
+<form>
+<table width=100%>
+<tr><td>
+<table width=60%>
+<tr>
+	<td> from </td>
+	<td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>	
+</tr>
+<tr>
+	<td> until </td>
+	<td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>	
+</tr>
+<tr>
+        <td> Perdana Number </td>
+        <td> <input type=text name=number value="<tmpl_var number>"></td>
+</tr>
+<tr>
+	<td>status</td>
+	<td><select name="status">
+		<option value=""></option>
+		<option value="Active" <tmpl_var active>>Active</option>
+		<option value="non-Active" <tmpl_var no>>non-Active</option>
+		<option value="Approve" <tmpl_var approve>>Approve</option>
+	</select></td>
+</tr>
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+
+	<td><input type=hidden name=dari value=<tmpl_var from>></td>
+	<td><input type=hidden name=ke value=<tmpl_var until>></td>
+</table>
+</td>
+</tr>
+</table>
+</form><br/>
+<div class="nav_left"><a href="/misc/setting/reg_list.xls?<tmpl_var r_args>">Download Excel Format</a></div-->
+<form> <!--name=approve method=POST action="/modify/transaction/approve"-->
+<table class="list" cellspacing=2 width='100%'>
+<tr>
+<td colspan=18 align=right><tmpl_var nav></td>
+</tr>
+<tr>
+	<th>#</th>
+	<th>date</th>
+	<th>Number</th>
+	<th>status</th>
+	<th>message</th>
+</tr>
+
+<tmpl_loop list>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var ts_perdana></a></td>
+	<td><tmpl_var perdana_number></td>
+	<td><tmpl_var status> | <a href="/modify/setting/change_status_perdana?perdana_id=<tmpl_var perdana_id>&status=<tmpl_var status>">Change</a></td>
+	<td><tmpl_var note></td>
+</tr>
+</tmpl_loop>
+</tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

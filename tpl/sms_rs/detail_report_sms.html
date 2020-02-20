@@ -1,0 +1,26 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>detail sms-rs</h3>
+<form name=report_sms action='/modify/sms_rs/send_answer'>
+<input type=hidden name=sms_rs_id value='<tmpl_var sms_rs_id>'>
+<table>
+<tr>
+	<td align=right>sms-rs id :</td><td><tmpl_var sms_rs_id></td>
+</tr>
+<tr>
+        <td align=right>from :</td><td><tmpl_var rs_number></td>
+</tr>
+<tr>
+	<td align=right>sms-rs in :</td><td><tmpl_var sms_in></td>
+</tr>
+<tr>
+	<td align=right>sms-rs out/reply :</td><td>
+		<tmpl_if sms_out><tmpl_var sms_out></tmpl_if>
+		<tmpl_unless sms_out><TEXTAREA NAME=sms_out COLS=30 ROWS=3><tmpl_var sms_out></TEXTAREA></tmpl_unless sms_out></td>
+</tr>
+<tr>	
+	<td>&nbsp;</td><td><tmpl_unless sms_out><input type=submit name=op value='send reply'></tmpl_unless></td>
+<tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

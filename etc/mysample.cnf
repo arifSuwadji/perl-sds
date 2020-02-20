@@ -1,0 +1,35 @@
+[mysqld]
+#basedir         = /home/gtw/sqld
+datadir         = /data/MyDATA
+#port            = 3306
+#socket		= /var/lib/mysql/mysql.sock
+
+max_connections = 200
+skip-locking
+query_cache_size = 32M
+# Try number of CPU's*2 for thread_concurrency
+thread_concurrency = 4
+#skip-networking
+innodb_file_per_table=1
+#innodb_file_format=Barracuda
+
+innodb_buffer_pool_size = 1G
+innodb_log_buffer_size = 16M
+innodb_log_file_size = 64M
+innodb_log_files_in_group = 3
+#old-passwords=OFF
+log_slow_queries = /log/mysql/slow.log
+log-error        = /log/mysql/error.log
+pid-file         = /log/mysql/mysqld.pid
+
+group_concat_max_len = 1G
+
+##replication section
+#server-id = 1
+#log-bin=/usr/local/mysql/log/mysql-bin
+#sync_binlog=1
+#binlog_format=MIXED
+
+[mysqldump]
+quick
+max_allowed_packet = 16M

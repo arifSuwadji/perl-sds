@@ -1,0 +1,60 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>list sms rs</h3>
+
+<form>
+<table width=40%>
+<tr>
+        <td> from </td>
+        <td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>
+</tr>
+<tr>
+        <td> until </td>
+        <td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>
+</tr>
+<tr>
+        <td> rs number </td>
+        <td> <input type=text name=rs_number  value=<tmpl_var rs_number>></td>
+</tr>
+<tr>
+        <td> in-smsc name </td>
+        <td> <input type=text name=in_smsc_name value=<tmpl_var in_smsc_name>></td>
+</tr>
+<tr>
+        <td> out-smsc name </td>
+        <td> <input type=text name=out_smsc_name value=<tmpl_var out_smsc_name>></td>
+</tr>
+<tr>
+        <td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table>
+<br />
+<div class="nav_left"> <a href="/misc/sms_rs/list_sms_rs.xls?<tmpl_var r_args>">Download Excel Format</a></div>
+<table class="list" cellspacing=2 width='100%'>
+<tr>
+	<td colspan=8 align=right> <tmpl_var nav></td>
+</tr>
+<tr>
+	<th>#</th>
+	<th>sms-rs id</th>
+	<th>sms in</th>
+	<th>rs number</th>
+	<th>sms_out</th>
+	<th>sms_time</th>
+	<th>in-smsc name</th>
+	<th>out-smsc name</th>
+</tr>
+
+<tmpl_loop list>
+<tr>	
+	<td align=center><tmpl_var _seq></td>
+	<td align=center><a href="/view/sms_rs/detail_report_sms?sms_rs_id=<tmpl_var sms_rs_id>"><tmpl_var sms_rs_id></a></td>
+	<td><tmpl_var sms_int></td>
+	<td><tmpl_var rs_number></td>
+	<td><tmpl_var sms_out></td>
+        <td><tmpl_var sms_time></td>
+	<td><tmpl_var in_smsc_name></td>
+	<td><tmpl_var out_smsc_name></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

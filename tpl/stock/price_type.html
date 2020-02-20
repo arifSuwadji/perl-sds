@@ -1,0 +1,21 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>List Price Type</h3>
+
+<div class="nav_left"><a href='/view/stock/add_price_type'>Add Price Type</a></div>
+
+<table class="list" cellspacing=2 width='60%'>
+<tr> 
+	<th>#</th><th> Price Type </th><th> action </th>
+<tmpl_loop rs_type>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var type_name></td>
+	<td align=center>
+		<a href='/view/stock/edit_price_type?id=<tmpl_var rs_type_id>'>Edit</a> | 
+		<a href='/modify/stock/delete_price_type?id=<tmpl_var rs_type_id>'>Delete</a>
+	</td>
+	
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

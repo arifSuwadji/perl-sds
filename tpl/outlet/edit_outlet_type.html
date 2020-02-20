@@ -1,0 +1,22 @@
+<tmpl_var 'INCL:common/header'>
+
+<h3>Edit Outlet Type </h3>
+<h3>Product : <tmpl_var ref_name></h3>
+
+<form method="post" action="/modify/outlet/edit_outlet_type">
+<table width="100%">
+	<tmpl_loop list>
+	<tr>
+		<td><tmpl_var type_name></td>
+		<td><input type="text" style="text-align:right" name="price" value="<tmpl_var price>"></td>
+		<input type="hidden" name="id_stock" value="<tmpl_var stock_ref_id>">
+		<input type="hidden" name="o_t_id" value="<tmpl_var outlet_type_id>">
+	</tr>
+	</tmpl_loop>
+	<tr>
+		<td colspan="2"><input type="submit" name="op" value="Update"></td>
+	</tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:common/footer'>

@@ -1,0 +1,20 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit SMSC </h3>
+
+
+<form action='/modify/smsc/edit_smsc'>
+<table border=0 cellspacing=2 cellpadding=0 width='40%'>
+<tr><td> SMSC Name </td><td> <input type=text name=smsc_name value='<tmpl_var smsc_name>'></td></tr>
+<tr><td> Site Name </td>
+<td><select name="site_id">
+	<option value="<tmpl_var site_id>"><tmpl_var site_name></option>
+	<tmpl_loop site_option>
+		<option value="<tmpl_var site_id>"><tmpl_var site_name></option>
+	</tmpl_loop>
+</select></td></tr>
+<input type=hidden name=smsc_id value='<tmpl_var smsc_id>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'></td></tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

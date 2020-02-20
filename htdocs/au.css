@@ -1,0 +1,494 @@
+a:link {
+
+	color: #0D80F6;
+
+	font-size: 11px;
+
+	text-decoration: none;
+
+	font-family: "arial", Times, serif;
+
+
+
+}
+
+
+
+a:visited {
+
+	color: #FF0000;
+
+	font-size: 11px;
+
+	text-decoration: none;
+
+	font-family: Arial, Helvetica, sans-serif;
+
+
+
+}
+
+
+
+a:active { 
+
+ color: #006600; 
+
+ font-size: 11px; 
+
+ text-decoration: none; 
+
+}
+
+
+
+a:hover { 
+
+ color: #FF3300; 
+
+ font-size: 11px; 
+
+ text-decoration: none; 
+
+}
+
+
+
+
+
+.linkText, .linkText a:link, .linkText a:active, .linkText a:visited, .linkText a:hover{ 
+
+ color:       #000000;
+
+font-size: 12px;
+
+text-decoration: none;
+
+font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.linkText a:link    { color:  #004184; }
+
+.linkText a:visited { color:  #004184; }
+
+.linkText a:active  { color:  #7F260E; }
+
+.linkText a:hover   { color:  #7F260E; } 
+
+
+
+.sideText, .sideText a:link, .sideText a:active, .sideText a:visited, .sideText a:hover{ 
+
+ color:       #F0FBB9;
+
+font-size: 11px;
+
+text-decoration: none;
+
+font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.sideText a:link    { color:  #ffffff; }
+
+.sideText a:visited { color:  #F0FBB9; }
+
+.sideText a:active  { color:  #F0FBB9; }
+
+.sideText a:hover   { color:  #F0FBB9; } 
+
+
+
+.arialittle {
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-size: 11px;
+
+	color: #333333;
+
+}
+
+
+
+.submenu { 
+
+    color:           black;
+
+    font-family:     trebuchet,verdana,geneva,arial,sans-serif;
+
+    font-size:       15px; 
+
+    font-weight:     bold;
+
+    letter-spacing:  0px;
+
+}
+
+
+
+.submenu2 { 
+
+    color:           black;
+
+    font-family:     trebuchet,verdana,geneva,arial,sans-serif;
+
+    font-size:       12px; 
+
+    font-weight:     bold;
+
+    letter-spacing:  0px;
+
+}.
+
+
+
+
+
+.arialittle {
+
+	font-family: Tahoma;
+
+	font-size: 11px;
+
+	color: #656565;
+
+}
+
+
+
+
+
+
+
+input {
+
+ font : bold 11px/13px Tahoma,trebuchet,sans-serif;
+
+ border : 1px solid #999999;
+
+ color : black;
+
+ background-color : #eeeeee;
+
+ margin-top: 2px;
+
+ margin-bottom: 2px;
+
+}
+
+
+
+input2 {
+
+ font : bold 11px/10px Tahoma,trebuchet,sans-serif;
+
+ border : 1px solid #999999;
+
+ color : black;
+
+ background-color : #eeeeee;
+
+ margin-top: 2px;
+
+ margin-bottom: 2px;
+
+}
+
+
+
+th {
+
+ font-family: Tahoma;
+
+ font-size: 11px;
+
+ font-weight : bold;
+
+ color: #ffffff;
+
+ background-color: #6B85C1;
+
+}
+
+h3 {
+ font-family: Tahoma,trebuchet,sans-serif;
+ /*line-height: 60%;*/
+ font-size: 16px;
+}
+
+td {
+ font : 11px Tahoma,trebuchet,sans-serif;
+ color : black;
+}
+
+.input {
+
+	border: 1px solid #667fa7;
+
+	<!--background-color: #b8ccea;-->
+
+	background-color: red;
+
+	
+
+}
+
+input.large {
+
+ width: 200px;
+
+}
+
+
+
+input:focus {
+
+ background-color : #ffffff;
+
+}
+
+
+
+input.button {
+
+ color : black;
+
+ background-color : #006600;
+
+ border: 2px solid #999999;
+
+
+
+}
+
+
+
+textarea {
+
+ border: 1px solid #999999;
+
+ margin-bottom: 11px;
+
+ color: black;
+
+ background-color: #eeeeee;
+
+ font: 11px/16px Tahoma,trebuchet,sans-serif;
+
+}
+
+
+
+textarea:focus {
+
+ background-color : #ffffff;
+
+}
+
+
+
+.pulldown {
+
+	font-family: Tahoma;
+
+	font-size:	10px;
+
+	font-weight: bold;
+
+border: 1px solid #667fa7;
+
+	background-color: #b8ccea;
+
+	
+
+
+
+}
+
+.kecil {
+
+	font-family: Tahoma;
+
+	font-size: 11px;
+
+	color: #666666;
+
+}
+
+.time {
+
+	font-family: "arial", Times, serif;
+
+	font-size: 13px;
+
+	color: #333366;
+
+}
+
+.aray {
+
+	font-family: Array;
+
+	font-size: 12px;
+
+	color: #6600CC;
+
+}
+
+.tri {
+
+	font-family: Tahoma, Tahoma;
+
+	font-size: 12px;
+
+	font-style: normal;
+
+	font-weight: normal;
+
+	font-variant: normal;
+
+	color: #333333;
+
+}
+
+.welcome {
+
+	font-family: Tahoma;
+
+	font-size: 9px;
+
+	color: #666666;
+
+}
+
+.putih {
+
+	font-family: Tahoma;
+
+	font-size: 11px;
+
+	color: #FFFFFF;
+
+}
+
+.kuning {
+
+	font-family: Tahoma;
+
+	font-size: 11px;
+
+	color: #F0FBB9;
+
+}
+
+ /* common styling */
+.menu2 {
+float:right; width:500; font-family: verdana, arial, sans-serif; font-size:11px;
+background:#dddddd;
+margin:0 0 0 0; /* for this demo only */ 
+}
+.menu2 ul {
+padding:0;margin:0;list-style-type:none;float:right;
+}
+.menu2 ul li {
+float:left; position:relative;
+}
+.menu2 ul li.group {display:block; text-indent:10px;background:#70B0F2; color:#0D80F6;
+width:80px; padding:4px 0; border:1px solid #000;}
+
+.menu2 ul li a, .menu2 ul li a:visited {
+float:left; display:block; text-decoration:none; color:#444; padding:0px 10px; line-height:14px; height:16px; border:0px solid #000;
+}
+
+.menu2 ul li:hover {width:auto;}
+
+.menu2 ul li a:hover {background:#70B0F2; border:0px solid #000; border-bottom:0px solid #000; }
+
+.menu2 ul li:hover a {background:#70B0F2; border:0px solid #000; border-bottom:0px solid #000; }
+
+.menu2 ul li ul {
+display: none;
+}
+.menu2 table {
+margin:0; border-collapse:collapse; font-size:11px; position:absolute; top:0; left:0; 
+}
+
+/* specific to non IE browsers */
+.menu2 ul li:hover ul {
+display:block; position:absolute;top:16px; background:#70B0F2; margin-top:0px; left:0; width:80px; 
+}
+
+.menu2 ul li:hover ul.scroller {
+height:138px; width:172px; overflow:auto;}
+
+.menu2 ul li:hover ul.endstop {
+left:-90px;
+}
+.menu2 ul li:hover ul li ul {
+display: none;
+}
+.menu2 ul li:hover ul li a {
+display:block;background:#70B0F2; color:#fff;height:auto;line-height:15px;padding:4px 16px; width:80px; 
+}
+.menu2 ul li:hover ul li a:hover {
+color:#ff0; background: #888;
+}
+.menu2 ul li:hover ul li:hover ul {
+display:block; position:absolute; left:153px; top:-70px; color:#000;
+left:152px; height:138px; width:172px; overflow:auto; background:#888;
+}
+.menu2 ul li:hover ul li:hover ul li a {background:#888;}
+.menu2 ul li:hover ul li:hover ul li.group {width:152px; padding:5px 0;}
+
+.menu2 ul li:hover ul li:hover ul.left {
+left:-172px;
+}
+.menu2 ul li:hover ul li:hover ul li a:hover {background:#666; color:#0ff;}
+
+
+
+/* specific to IE5.5 and IE6 browsers */
+.menu2 ul li a:hover ul {
+display:block;position:absolute;top:16px; t\op:15px; background:#70B0F2;left:0; marg\in-top:1px; border:0px solid #000; border-bottom:0px solid #000; 
+}
+.menu2 ul li a:hover ul.scroller {
+height:138px; overflow:auto;}
+
+.menu2 ul li a:hover ul.endstop {
+left: -90px;
+}
+.menu2 ul li a:hover ul li a {
+display:block; color:#fff; height:1px; line-height:15px; padding:4px 16px; width:152px; w\idth:120px;
+}
+.menu2 ul li a:hover ul li a ul {
+visibility:hidden; position:absolute; height:0; width:0;
+}
+.menu2 ul li a:hover ul li a:hover {
+color:#ff0; background: #888;
+}
+.menu2 ul li a:hover ul li a:hover ul {
+visibility:visible; position:absolute; top:-69px; t\op:-70px; color:#000; left:152px; height:138px; width:170px; overflow:auto; background:#888;
+}
+.menu2 ul li a:hover ul li a:hover ul.left {
+left:-170px;
+}
+.menu2 ul li a:hover ul li a:hover ul li a:hover {background:#666; color:#0ff;}
+
+
+.left {clear:both;}
+
+/* not validating css */
+.menu2
+{
+  scrollbar-face-color:#ddd;
+  scrollbar-arrow-color:#000;
+  scrollbar-track-color:#aaa;
+  scrollbar-shadow-color:#ddd;
+  scrollbar-highlight-color:#eee;
+  scrollbar-3dlight-color:#eee;
+  scrollbar-darkshadow-Color:#ddd;
+}
+
+

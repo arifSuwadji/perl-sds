@@ -1,0 +1,57 @@
+<tmpl_var 'INCL:/common/header'>
+
+<script language="javascript">
+function prev_stock(sd_stock_id,from){
+	document.getElementById('div1').style.visibility="visible";
+	window.frames["myFrame"].location = "/view/stock/prev_stock?sd_stock_id="+sd_stock_id+"&from="+from;
+}
+</script>
+
+<div id="div1" style="POSITION: absolute; TOP: 150px; visibility:hidden; z-index: 900; LEFT: 150px;">
+<iframe name="myFrame" frameborder="0" vspace="0" hspace="0" marginwidth="5" marginheight="5"
+  width="1000" scrolling="auto" height="320"
+  style="BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid;">
+</iframe></div>
+
+<h3>Total Stock</h3>
+
+<form>
+<table width=60%>
+<tr>
+    <td> from </td>
+    <td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value="<tmpl_var from>"></td>
+</tr>
+<tr>
+    <td> until </td>
+    <td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value="<tmpl_var until>"></td>
+</tr>
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table>
+</form>
+<br>
+<table class="list" cellspacing=2 width='100%'>
+	<tr>
+		<th>no</th>
+		<th>sub master name</th>
+		<th>stock ref name</th>
+		<th>prev stock</th>
+		<th>stock in</th>
+		<th>stock out</th>
+		<th>total stock</th>
+	</tr>
+	<tmpl_loop list>
+	<tr>
+		<td><tmpl_var _seq></td>
+		<td><tmpl_var sd_name></td>
+		<td><tmpl_var stock_ref_name></td>
+		<td align="right"><tmpl_var prev_stock></td>
+		<td align="right"><tmpl_var stock_in></td>
+		<td align="right"><tmpl_var stock_out></td>
+		<td align="right"><tmpl_var total_stock></td>
+	</tr>
+	</tmpl_loop>
+</table>
+
+<tmpl_var 'INCL:/common/footer'>

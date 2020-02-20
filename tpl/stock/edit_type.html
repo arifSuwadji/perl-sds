@@ -1,0 +1,13 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit sub-Master Type </h3>
+
+
+<form action='/modify/stock/edit_type'>
+<table border=0 cellspacing=2 cellpadding=0 width='40%'>
+<tr><td> sub-master type name </td><td> <input type=text name=sd_type_name value='<tmpl_var sd_type_name>'></td></tr>
+<input type=hidden name=sd_type_id value='<tmpl_var sd_type_id>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'></td></tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

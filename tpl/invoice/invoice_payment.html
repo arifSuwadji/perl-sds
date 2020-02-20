@@ -1,0 +1,85 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3>Payment & Payment of Invoice</h3>
+
+<form>
+<table width="100%"><tr><td><table width="100%">
+<tr>
+	<td> from </td>
+	<td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>
+</tr>
+<tr>
+	<td> until </td>
+	<td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>
+</tr>
+<tr>
+        <td> member name </td>
+        <td> <input type=text name=member_name value=<tmpl_var member_name>></td>
+</tr>
+<tr>
+        <td> payment type </td>
+        <td><select name="payment_type">
+		<option value="">ALL</option>
+		<tmpl_loop type_options> 
+                <option value=<tmpl_var value> <tmpl_if selected> selected</tmpl_if> ><tmpl_var display> </option></tmpl_loop>
+	</select></td>
+</tr>
+<tr>
+        <td> site  </td>
+        <td> <tmpl_var 'INCL:/common/site'></td>
+</tr>
+
+<tr>
+        <td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table></td>
+<td><table width="70%">
+<tr align=right>
+	<td>Cash :</td>
+	<td><tmpl_var paid_cash></td>
+</tr>
+<tr align=right>
+	<td>Bank/Transfer :</td>
+	<td><tmpl_var paid_bank></td>
+</tr>
+
+<tr align=right>
+	<td>Payment Balance :</td>
+	<td><tmpl_var balance></td>
+</tr>
+</table></td>
+</tr></table>
+</form>
+
+<div class="nav_left"><a href="/misc/invoice/invoice_payment.xls?<tmpl_var r_args>">Download Excel Format</a></div>
+<div class="nav_right"><tmpl_var nav></div>
+<table class="list" border=0 cellspacing=2 cellpadding=0 width='100%'>
+<tr>
+	<th>No</th>
+	<th>Member Name</th>
+	<th>Outlet Name</th>
+	<th>Inv-date</th>
+	<th>Due Date</th>
+	<th>Payment Date</th>
+	<th colspan=3>Payment Type</th>
+	<th>Invoice Number</th>
+	<th>Amount</th>
+</tr>
+<tmpl_loop list>
+<tr>
+	<td><tmpl_var _seq></td>
+	<td><tmpl_var member_name></td>
+	<td><tmpl_var outlet_name></td>
+	<td align="center"><tmpl_var inv_date></td>
+	<td align="center"><tmpl_var due_date></td>
+	<td align="center"><tmpl_var trans_date>&nbsp;<tmpl_var trans_time></td>
+	<td align="center"><tmpl_var trans_type></td>
+	<td><a href="/modify/invoice/change_payment?trans_id=<tmpl_var trans_id>&pay_type=<tmpl_var change_type>&inv_id=<tmpl_var inv_id>&outlet_name=<tmpl_var outlet_name>">change</a></td>
+	<td><tmpl_var note_bank></td>
+	<td align="center"><tmpl_var invoice_number></td>
+	<td align="right"><tmpl_var amount></td>
+</tr>
+</tmpl_loop>
+</table>
+
+<tmpl_var 'INCL:/common/footer'>

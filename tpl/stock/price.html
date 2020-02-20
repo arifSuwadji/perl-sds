@@ -1,0 +1,30 @@
+<tmpl_var 'INCL:/common/header'>
+<style type="text/css">
+        table td{border:2px;}                   
+</style> 
+<h3>Pricing</h3>
+<table class="list" id="gradient-style"  summary="topuplist list">
+<tr>
+<th rowspan=2>#</th>
+<th rowspan=2>Stock Name</th>
+<tmpl_loop count>
+<th colspan="<tmpl_var jumlah>">Price</th>
+</tmpl_loop>
+<tr>
+<tmpl_loop rs_type>
+<th><tmpl_var type_name> </th>
+</tmpl_loop>
+
+</tr>
+</tr>
+
+<tmpl_loop list>
+<tr>
+<td><tmpl_var seq></td>
+<td><tmpl_var stock_ref_name></td>
+<tmpl_var p>
+<tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>
+

@@ -1,0 +1,116 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Double Topup List</h3>
+
+<form>
+<table width=100%>
+<tr><td>
+<table width=60%>
+<tr>
+	<td> from </td>
+	<td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>	
+</tr>
+<tr>
+	<td> until </td>
+	<td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>	
+</tr>
+<tr>
+        <td> keyword </td>
+        <td> <input type=text name=keyword value=<tmpl_var keyword>></td>
+</tr>
+<tr>
+        <td> site  </td>
+        <td> <tmpl_var 'INCL:/common/site'></td>
+</tr>
+
+<tr>
+        <td> sub-master  </td>
+        <td><input type=text name=sd_name value=<tmpl_var sd_name>></td>
+</tr>
+<tr>
+        <td> outlet  </td>
+        <td> <tmpl_var 'INCL:/common/outlet'></td>
+</tr>
+
+</tr>	
+<tr> <td colspan=2>&nbsp;</td></tr>
+
+</table>
+</td> <td>
+<table width=50%>
+<tr>
+	<td> ro number </td>
+	<td> <input type=text name=rs_number value=<tmpl_var rs_number>></td>	
+</tr>
+<tr>
+        <td> member </td>
+        <td> <input type=text name=member_name value=<tmpl_var member_name>></td>
+</tr>
+
+<tr>
+	<td> status </td>
+	<td> <select name=status> <option value=0> ALL </option>
+                <tmpl_loop status_options> 
+                <option value=<tmpl_var value> <tmpl_if selected> selected</tmpl_if> ><tmpl_var display> </option></tmpl_loop>
+                </select></td>	
+</tr>
+<tr>
+	<td> admin </td>
+	<td> <input type=text name=admin_name value='<tmpl_var admin_name>'></td>	
+</tr>
+<tr>
+        <td> ro-type  </td>
+        <td> <tmpl_var 'INCL:/common/rs_type'></td>
+</tr>
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+
+<table class="list" cellspacing=2 width='100%'>
+<tr>
+<td colspan=16 align=right><tmpl_var nav></td>
+</tr>
+<tr>
+	<th>#</th>
+	<th>ro</th>
+	<th>trx id</th>
+	<th>date time</th>
+	<th>keyword</th>
+	<th>outlet</th>
+	<th>ro-type</th>
+	<th>sub-master</th>	
+	<th>site</th>
+	<th>member</th>
+	<th>qty</th>
+	<th colspan=3>status</th>
+	<th>mutation</th>
+	<th>admin</th>
+	
+</tr>
+
+<tmpl_loop list_transaction>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var rs_number></td>
+	<td><a href="/view/transaction/detail?trans_id=<tmpl_var trans_id>"><tmpl_var trans_id></a></td>
+	<td><tmpl_var atopup_ts></td>
+	<td><tmpl_var akeyword></td>
+	<td><tmpl_var aoutlet_name></td>
+	<td><tmpl_var ars_type_name></td>
+	<td><tmpl_var asd_name></td>
+	<td><tmpl_var asite_name></td>
+	<td><tmpl_var amember_name></td>
+        <td><tmpl_var atopup_qty></td>
+	<td><b><tmpl_var atopup_status></b></td>
+	<td><tmpl_var aerror_msg></td>
+	<td><tmpl_var alog_msg></td>
+	<td><tmpl_var aamount></td>
+	<td><tmpl_var admin_name></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

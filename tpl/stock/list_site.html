@@ -1,0 +1,20 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Site List</h3>
+
+<table class="list" cellspacing=2 width='80%'>
+<tr> 
+	<th>#</th><th> site name </th><th> site url </th><th> action </th>
+<tmpl_loop list_site>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var site_name></td>
+	<td><tmpl_var site_url></td>
+	<td align=center>
+		<a href='/view/stock/edit_site?id=<tmpl_var site_id>'>Edit</a> | 
+		<a href='/modify/stock/delete_site?id=<tmpl_var site_id>'>Delete</a>
+	</td>
+	
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

@@ -1,0 +1,10 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Dompul-nominal discount </h3>
+
+<form action='/modify/stock/dompul_disc_update'>
+<table border=0 cellspacing=2 cellpadding=0 width='40%'>
+<tr><td>discount (xx percent)</td><td><input type=text name=config_value value='<tmpl_var dompul_discount>' size=10></td></tr>
+<tr><td>&nbsp;</td><td><input type=submit name=op value='Update discount'></td></tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

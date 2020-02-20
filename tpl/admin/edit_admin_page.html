@@ -1,0 +1,97 @@
+<tmpl_var 'INCL:/common/header'>
+<script type="text/javascript">
+function checkAll(field)
+{
+for (i = 0; i < field.length; i++)
+	field[i].checked = true ;
+}
+
+function uncheckAll(field)
+{
+for (i = 0; i < field.length; i++)
+	field[i].checked = false ;
+}
+</script>
+
+<h3>Edit Admin Group</h3>
+
+<form name="admin_group" method=POST action="/modify/admin/edit_admin_page">
+<table cellpadding=2 width=100%>
+	<tr><td>Group Name</td><td><input type=hidden name=group_id value='<tmpl_var group_id>'>
+	<input type=text name=group_name value='<tmpl_var group_name>'></td>
+	<td colspan=2 align=right><input type=button name=CheckAll value=Check onClick="checkAll(document.admin_group.page_id)">
+	<input type=button name=UncheckAll value=Uncheck onClick="uncheckAll(document.admin_group.page_id)">
+	<input type=submit name=update value='Update'></td></tr>
+</table>
+
+<table cellpadding=2 width=100%><tr valign=top>
+	<td width=300px><table><tr>
+		<th>Transaction</th></tr>
+		<tmpl_loop transaction>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+		<tmpl_loop topup>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+	</table></td>
+	<td width=300px><table><tr>
+		<th>Member</th></tr>
+		<tmpl_loop member>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+		<tmpl_loop admin>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+		<tmpl_loop rs_chip>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+		<tmpl_loop outlet>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+		<tmpl_loop invoice>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+	</table></td>
+	<td width=300px><table><tr>
+		<th>Stock</th></tr>
+		<tmpl_loop stock>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+	</table></td>
+	<td width=300px><table><tr>
+		<th>SMS</th></tr>
+		<tmpl_loop sms>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+		<tmpl_loop smsc>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+		<tmpl_loop sms_rs>
+		<tr bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>'>
+			<td><input type=checkbox name=page_id value='<tmpl_var page_id>'<tmpl_if checked>checked </tmpl_if>><tmpl_var path></td>
+		</tr>
+		</tmpl_loop>
+	</table></td>
+</tr></table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

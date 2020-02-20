@@ -1,0 +1,63 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>stock mutation</h3>
+
+<form>
+<table width=100%>
+<tr><td>
+<table width=60%>
+<tr>
+    <td> from </td>
+    <td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>
+</tr>
+<tr>
+    <td> until </td>
+    <td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>
+</tr>
+<tr>
+        <td> product </td>
+        <td> <input type=text name=stock_ref_name value=<tmpl_var stock_ref_name>></td>
+</tr>
+<tr> 
+<td> sub master </td>
+<td> <input type=text name=sd_name value=<tmpl_var sd_name>></td>
+</tr>
+<tr>
+        <td> site  </td>
+        <td> <tmpl_var 'INCL:/common/site'></td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+<div class="nav_left"><a href="/misc/stock/stock_mutation.xls?<tmpl_var r_args>">Download Excel Format</a></div>
+<div align=right><tmpl_var nav></div>
+<table class="list" cellspacing=2 width='100%'>
+<tr> 
+	<th>#</th>
+	<th> sd name </th>
+	<th> date time </th>
+	<th> trx id </th>
+	<th> product </th>
+	<th> stock in </th>
+	<th> stock out </th>
+	<th> stock_qty </th>
+</tr>
+<tmpl_loop list>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><a href='/view/stock/detail_stock_sd_chip?id=<tmpl_var sd_id>&ref_type_id=<tmpl_var ref_type_id>&sd_name=<tmpl_var sd_name>'><tmpl_var sd_name></a> [ <tmpl_var sd_number> ]</td>
+	<td><tmpl_var sm_ts></td>
+	<td><tmpl_var trans_id></td>
+	<td><tmpl_var stock_ref_name></td>
+	<td align=right><tmpl_var sin></td>
+	<td align=right><tmpl_var sout></td>
+	<td align=right><tmpl_var stock_qty></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

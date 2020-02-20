@@ -1,0 +1,23 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>List Package</h3>
+
+
+<div class=nav_left><a href='/view/stock/add_pkg'>Add Package Name</a></div>
+<div class=nav_right><tmpl_var nav></div>
+<table class="list" cellspacing=2 width='50%'>
+<tr> 
+	<th>#</th>
+	<th> Package Name </th>
+	<th> Action </th>
+<tmpl_loop list>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><a href='/view/stock/dtl_pkg?pkg_id=<tmpl_var pkg_id>'><tmpl_var pkg_name></a></td>
+	<td align=center>
+		<a href='/view/stock/edit_list_package?id=<tmpl_var pkg_id>' >Edit</a> |
+		<a href='/modify/stock/delete_list_package?id=<tmpl_var pkg_id>' >Delete</a>
+	</td>	
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

@@ -1,0 +1,89 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Topup report</h3>
+
+<form>
+<table width=100%>
+<tr><td>
+<table width=60%>
+<tr>
+	<td> from </td>
+	<td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>	
+</tr>
+<tr>
+	<td> until </td>
+	<td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>	
+</tr>
+<tr>
+        <td> keyword </td>
+        <td> <input type=text name=keyword value=<tmpl_var keyword>></td>
+</tr>
+<tr>
+        <td> site  </td>
+        <td> <tmpl_var 'INCL:/common/site'></td>
+</tr>
+<tr> <td colspan=2><input type=hidden name=status_hidden value=S></td></tr>
+
+</table>
+</td> <td>
+<table width=50%>
+<tr>
+	<td> ro number </td>
+	<td> <input type=text name=rs_number value='<tmpl_var rs_number>'></td>
+	<td>(ex.:62817xxxx)</td>
+</tr>
+<tr>
+	<td> sub-master </td>
+	<td> <input type=text name=sd_name value='<tmpl_var sd_name>'></td>
+	<td> (ex.:62817xxxx)</td>
+</tr>
+<tr>
+        <td> member </td>
+        <td> <input type=text name=member_name value='<tmpl_var member_name>'></td>
+</tr>
+<tr>
+	<td> admin </td>
+	<td> <input type=text name=admin_name value='<tmpl_var admin_name>'></td>	
+</tr>
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br />
+</form>
+<div class="nav_left"><a href="/misc/transaction/topup_report.xls?<tmpl_var r_args>">Download Excel Format</a></div>
+<div class="nav_right">SITE : &nbsp;&nbsp;&nbsp;<tmpl_var site_name>&nbsp;&nbsp;&nbsp;</div>
+<table class="list" cellspacing=2 width='100%'>
+<tr>
+	<td colspan=7 align=right><tmpl_var nav></td>
+</tr>
+<tr>
+	<th>#</th>
+	<th>member</th>
+	<th>sub master</th>
+	<th>keyword</th>
+	<th>success</th>
+	<th>failed</th>
+	<th>total mutation</th>
+</tr>
+
+<tmpl_loop list_report>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var member_name></td>
+	<td><tmpl_var sd_name></td>
+	<td><tmpl_var keyword></td>
+	<td align=right><tmpl_var keyword_sukses></td>
+	<td align=right></td>
+        <td align=right><tmpl_var keyword_amount></td>
+</tr>
+</tmpl_loop>
+<tr>
+	<td>&nbsp;</td>
+	<td colspan=5 align=right>Total</td>
+	<td align="right"><tmpl_var total></td>
+</tr>
+</table>
+<tmpl_var 'INCL:/common/footer'>

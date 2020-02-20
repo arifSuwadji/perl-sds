@@ -1,0 +1,44 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>List sub-Master</h3>
+
+<form>
+<table width=100%>
+<tr><td>
+<table width=60%>
+<tr>
+        <td> site  </td>
+        <td> <tmpl_var 'INCL:/common/site'></td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+<br/>
+<div class="nav_left"><a href='/view/stock/add_stock_sd_chip'>Add sub-Master</a></div>
+<table class="list" cellspacing=2 width='90%'>
+<tr> 
+	<th>#</th>
+	<th> sub-Master name </th>
+	<th> type name </th><th>sub-Master pin<th>site name</th><th>modem name</th><th> action </th>
+<tmpl_loop list_stock_sd_chip>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><a href='/view/stock/detail_stock_sd_chip?id=<tmpl_var sd_id>&ref_type_id=<tmpl_var ref_type_id>&sd_name=<tmpl_var sd_name>'><tmpl_var sd_name></a> [ <tmpl_var sd_number> ]</td>
+	<td><tmpl_var sd_type_name></td>
+	<td><tmpl_var pin></td>
+	<td><tmpl_var site_name></td>
+	<td><tmpl_var modem_name></td>
+	<td align=center>
+		<a href='/view/stock/edit_stock_sd_chip?id=<tmpl_var sd_id>'>Edit</a> | 
+		<a href='/modify/stock/delete?id=<tmpl_var sd_id>'>Delete</a>
+	</td>
+	
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

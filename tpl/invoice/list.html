@@ -1,0 +1,72 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3>List Invoice</h3>
+
+<form>
+<table width=100%><tr><td><table width="100%">
+<tr>
+    <td> from </td>
+    <td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>
+</tr>
+<tr>
+    <td> until </td>
+    <td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>
+</tr>
+<tr>
+        <td> outlet name </td>
+        <td> <input type=text name=outlet_name value=<tmpl_var outlet_name>></td>
+</tr>
+<tr>
+        <td> member name </td>
+        <td> <input type=text name=member_name value=<tmpl_var member_name>></td>
+</tr>
+<tr>
+		<td>Status</td>
+		<td><select name=status>
+		<option value="">ALL</option>
+		<option value="PAID"<tmpl_if status1>selected</tmpl_if>>PAID</option>
+		<option value="UNPAID"<tmpl_if status2>selected</tmpl_if>>UNPAID</option>
+		</td>
+</tr>
+<tr>
+        <td>&nbsp;</td><td><input type=submit name=op value=search></td>
+</tr>
+</table></td>
+<td><table width="60%">
+<tr>
+	<td>balance invoice : </td>
+	<td><tmpl_var balance></td>
+</tr>
+</table></td>
+</tr></table>
+</form>
+
+<div class="nav_right"><tmpl_var nav></div>
+<table class="list" border=0 cellspacing=2 cellpadding=0 width='100%'>
+<tr>
+        <th>#</th>
+        <th>Member Name</th>
+        <th>Outlet Name</th>
+        <th>Status</th>
+		<th>Inv-date</th>
+		<th>Due Date</th>
+		<th>Invoice Number</th>
+        <th>Amount</th>
+		<th>Action</th>
+</tr>
+<tmpl_loop list_outlet>
+<tr>
+        <td align=center><tmpl_var _seq></td>
+        <td align=center><tmpl_var member_name></td>
+        <td align=center><tmpl_var outlet_name></td>
+        <td align=center><tmpl_var status></td>
+        <td align=center><tmpl_var inv_date></td>
+        <td align=center><tmpl_var due_date></td>
+        <td align=center><tmpl_var invoice_number></td>
+        <td align=center><tmpl_var amount></td>
+		<td align=center><a href="/modify/invoice/paid?inv_id=<tmpl_var inv_id>&inv_date=<tmpl_var inv_date>&outlet_id=<tmpl_var outlet_id>&outlet_name=<tmpl_var outlet_name>&amount=<tmpl_var sum>&invoice_number=<tmpl_var invoice_number>&type=paid_cash"><tmpl_var paid></a>|<a href="/modify/invoice/paid?inv_id=<tmpl_var inv_id>&inv_date=<tmpl_var inv_date>&outlet_id=<tmpl_var outlet_id>&outlet_name=<tmpl_var outlet_name>&amount=<tmpl_var sum>&invoice_number=<tmpl_var invoice_number>&type=paid_bank"><tmpl_var bank></a></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>
+                                 

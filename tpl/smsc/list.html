@@ -1,0 +1,56 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>list SMSC</h3>
+
+<form>
+<table width=100%>
+<tr><td>
+<table width=60%>
+<tr>
+        <td> site  </td>
+        <td> <tmpl_var 'INCL:/common/site'></td>
+</tr>
+<tr>
+	<td>status</td>
+	<td><select name='status'>
+		<option value="<tmpl_var status>"><tmpl_var status></option>
+		<option value="">ALL</option>
+		<option value="active">Active</option>
+		<option value="non-active">non-Active</option>
+	</select></td>
+</tr>
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+
+<div class="nav_left"><a href='/view/smsc/add_smsc'>Add SMSC</a></div>
+
+<table class="list" cellspacing=2 width='40%'>
+<tr>
+	<th>#</th>
+	<th>SMSC</th>
+	<th>SITE NAME</th>
+	<th>SMSC Type</th>
+	<th>SMSC Status</th>
+	<th>Action</th
+</tr>
+<tmpl_loop list_smsc>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var smsc_name></td>
+	<td><tmpl_var site_name></td>
+	<td><tmpl_var smsc_type>|<a href='/modify/smsc/change_type?smsc_id=<tmpl_var smsc_id>&smsc_type=<tmpl_var smsc_type>&site_id=<tmpl_var site_id>'>Change Type</a></td>
+	<td align=center><tmpl_var smsc_status>|<a href='/modify/smsc/change_status?smsc_id=<tmpl_var smsc_id>&smsc_status=<tmpl_var smsc_status>&site_id=<tmpl_var site_id>'>Change Status</a></td>
+	<td align=center>
+		<a href='/view/smsc/edit_smsc?id=<tmpl_var smsc_id>'>Edit</a> | 
+		<a href='/modify/smsc/delete?id=<tmpl_var smsc_id>'>Delete</a>
+	</td>
+	
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

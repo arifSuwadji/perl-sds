@@ -1,0 +1,28 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3> Add sub-Master </h3>
+
+<form action='/modify/stock/add_stock_sd_chip'>
+<table border=0 cellspacing=2 cellpadding=0 width='60%'>
+<tr><td width=35%>sub-Master name</td><td><input type=text name=sd_name value=''></td></tr>
+<tr><td width=35%>sub-Master number</td><td><input type=text name=sd_number value=''> (ex.:62817xxxxxx)</td></tr>
+<tr><td>sub-Master type</td><td><select name=sd_type_id>
+			<tmpl_loop type_options>
+			<option value='<tmpl_var sd_type_id>'><tmpl_var sd_type_name> </option>
+			</tmpl_loop>
+			</select>
+			</td></tr>
+<tr><td>sub-Master pin</td><td><input type=text name=pin value=''></td></tr>
+<tr><td>sub-Master Site</td><td><select name=site_id>
+                        <tmpl_loop site_options>
+                        <option value='<tmpl_var site_id>'><tmpl_var site_name> </option>
+                        </tmpl_loop>
+                        </select>
+                        </td></tr>
+ 
+<tr><td>Modem</td><td><input name=modem></td></tr>
+      	
+<tr><td>&nbsp;</td><td><input type=submit name=op value='Add'></td></tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

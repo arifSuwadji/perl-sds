@@ -1,0 +1,19 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit SD stock for : <tmpl_var sd_name> </h3>
+
+<form action='/modify/stock/edit_sd_stock'>
+<table width='40%'>
+<tr><td> Stock Ref Name </td><td> <tmpl_var stock_ref_name></td></tr>
+<tr><td> Quantity before</td><td> <tmpl_var qty></td></tr>
+<tr><td> Quantity Update</td><td> <input type=text name=qty value=''></td></tr>
+<input type=hidden name=sd_stock_id value='<tmpl_var sd_stock_id>'>
+<input type=hidden name=stock_ref_id value='<tmpl_var stock_ref_id>'>
+<input type=hidden name=sd_id value='<tmpl_var sd_id>'>
+<input type=hidden name=sd_name value='<tmpl_var sd_name>'>
+<input type=hidden name=b_qty value='<tmpl_var qty>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'> OR <input type=submit name=op value='Approve Manager'></td></tr>
+<tr><td colspan=2><tmpl_var error></td></tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

@@ -1,0 +1,16 @@
+<tmpl_include '../header.html'>
+<h3>General Setting </h3>
+
+<form action='/modify/general/setting'>
+<table border=0 cellspacing=2 cellpadding=0 width='60%'>
+<tmpl_loop list_config>
+<tr>
+<td><tmpl_var config_name><tmpl_if percent1>(e.g.:in percent)</tmpl_if> <tmpl_if percent2>(e.g.:in percent)</tmpl_if> <tmpl_if pertrx>(in one transaction)</tmpl_if><tmpl_if sms_interval>(e.g.:in minutes)</tmpl_if><tmpl_if trx_brake_interval>(e.g.:in minutes)</tmpl_if></td>
+<td><input type=text name='<tmpl_var config_name>' value='<tmpl_var config_value>'></td>
+<td><input type=checkbox name=config_id value='<tmpl_var config_id>'></td></tr>
+</tmpl_loop>
+<tr><td colspan=3>&nbsp;</td><td align=left></td></tr>
+<tr><td colspan=2>&nbsp;</td><td align=left><input type=submit name=op value='Update'></td></tr>
+</table>
+</form>
+<tmpl_include '../footer.html'>

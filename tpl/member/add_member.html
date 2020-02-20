@@ -1,0 +1,29 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Add Member </h3>
+
+<table width=50%>
+<form action='/modify/member/add_member'>
+<tr><td>Member Name</td><td><input type=text name=member_name value=''></td></tr>
+<tr><td>Upline Name</td><td><input type=text name=upline_name value=''></td></tr>
+<tr><td>Sales Target</td><td><input type=text name=target value=''></td></tr>
+<tr><td> Member Type</td>
+	<td><select name=type>
+		<option value="CVS">CVS</option>
+		<option value="SPV">SPV</option>
+		<option value="BM">BM</option>
+		</select>
+	</td>
+</tr>
+<tr><td>Member Site</td><td><select name=site_id><option value=0></option>
+				<tmpl_loop list_site>
+				<option value='<tmpl_var site_id>'><tmpl_var site_name></option>
+				</tmpl_loop>
+				</select></td></tr>
+<tr><td>Status</td><td><select name=status> <option value=0></option> 
+				<option value=1>Active</option>
+				<option value=2>non-Active</option>
+			</select></td></tr>
+<tr><td>&nbsp;</td><td><input type=submit name=op value='Add Member'></td></tr
+</form>
+</table>
+<tmpl_var 'INCL:/common/footer'>

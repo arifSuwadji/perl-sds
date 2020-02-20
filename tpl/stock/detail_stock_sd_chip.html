@@ -1,0 +1,164 @@
+<tmpl_var 'INCL:/common/header'>
+
+<script language="javascript">
+function approve_manager(op){
+	var sd_name 	= document.form1.sd_name.value;
+	var sd_id   	= document.form1.sd_id.value;
+	var ref_type_id	= document.form1.ref_type_id.value;
+	var count_stock	= document.form1.count_stock.value;
+	var sd_stock_id	= new Array();
+	for(var i=0; i < count_stock; i++){
+		sd_stock_id[i] = document.getElementsByName("sd_stock_id")[i].value;
+	}
+	var stock_ref_id = new Array();
+	for(var i=0; i < count_stock; i++){
+		stock_ref_id[i] = document.getElementsByName("stock_ref_id")[i].value;
+	}
+	var qty = new Array();
+	for(var i=0; i < count_stock; i++){
+		qty[i] = document.getElementsByName("add_qty")[i].value;
+	}
+	if(op == "Add For Approve Manager"){
+		document.location="/modify/stock/approve_manager?sd_id="+sd_id+"&ref_type_id="+ref_type_id+"&sd_name="+sd_name+"&sd_stock_id="+sd_stock_id+"&stock_ref_id="+stock_ref_id+"&qty="+qty+"&count_stock="+count_stock;
+	}else if(op == "Add Quota"){
+		document.location="/modify/stock/add_quota?sd_id="+sd_id+"&ref_type_id="+ref_type_id+"&sd_name="+sd_name+"&sd_stock_id="+sd_stock_id+"&stock_ref_id="+stock_ref_id+"&qty="+qty+"&count_stock="+count_stock;
+	}
+}
+</script>
+
+<h3>Stock Detail from <tmpl_var sd_name></h3>
+
+<form method="post" name="form1" action="/modify/stock/edit_sd_stock">
+<table cellspacing=2 class=list width='60%'>
+<tr>
+   <th> # </th>
+   <th> stock ref name </th>
+   <th> available </th>
+   <th> quota </th>
+   <th> add qty / quota</th>
+</tr>
+<tmpl_loop list_product>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var stock_ref_name></td>
+	<td align=right><tmpl_var qty></td>
+	<td align=right><tmpl_var quota></td>
+	<td width="100px"><input type="text" style="text-align:right" name="add_qty" value=""/></td>
+	<input type="hidden" name="sd_stock_id" id="sd" value="<tmpl_var sd_stock_id>">
+	<input type="hidden" name="stock_ref_id" value="<tmpl_var stock_ref_id>">
+</tr>
+</tmpl_loop>
+<tr>
+	<input type="hidden" name="sd_id" value="<tmpl_var sd_id>">
+	<input type="hidden" name="sd_name" value="<tmpl_var sd_name>">
+	<input type="hidden" name="ref_type_id" value="<tmpl_var ref_type_id>">
+	<input type="hidden" name="count_stock" value="<tmpl_var count_stock>">
+	<td colspan="5" align="right">
+		<input type="submit" name="op" value="Add QTY"><br>
+		<input type="button" name="op" onClick="approve_manager(this.value)" value="Add For Approve Manager"><br>
+		<input type="button" name="op" onClick="approve_manager(this.value)" value="Add Quota">
+	</td>
+</tr>
+</table>
+</form>
+<br/>
+
+<br/><br/>
+<h3> RO/RS from <tmpl_var sd_name> </h3>
+<form>
+<input type=hidden name=id value="<tmpl_var sd_id>">
+<input type=hidden name=ref_type_id value="<tmpl_var ref_type_id>">
+<input type=hidden name=sd_name value="<tmpl_var sd_name>">
+<table width=43%><tr><td><table width=60%>
+<tr><td>
+	<td> rs-number </td>
+	<td><input type=text name=rs_number value="<tmpl_var rs_number>"></td>
+</td></tr>
+<tr><td>
+    <td> outlet </td>
+    <td><input type=text name=outlet_name value="<tmpl_var outlet_name>"></td>
+</td></tr>
+<tr><td>
+	<td>status</td>
+	<td><select name="status"><option value=""><tmpl_var status></option>
+	<option value="Active">Active</option>
+	<option value="non-Active">non-Active</option></select></td>
+</td></tr>
+<tr><td>
+    <td>&nbsp;</td><td><input type=submit name=op value='submit'></td>
+</td></tr>
+</table></td></tr></table></form><br/>
+<div align=middle><tmpl_var nav></div>
+<table cellspacing=2 class=list width='60%'>
+<tr>
+   <th> # </th>
+   <th> ro number </th>
+   <th> outlet </th>
+   <th> ro-type</th>
+   <th> status </th>
+   <th> action </th>
+</tr>
+
+<tmpl_loop list_rs_chip>
+<tr>
+        <td align=center><tmpl_var _seq></td>
+        <td><!--<a href="/view/stock/detail_rs_chip?rs_id=<tmpl_var rs_id>&rs_name=<tmpl_var rs_number>">--><tmpl_var rs_number><!--</a>--></td>
+	<td align=left><tmpl_var outlet_name></td>
+        <td align=center><tmpl_var type_name></td>
+
+	<td align=left><tmpl_var status> | <a href="/modify/stock/change_status_rs?rs_id=<tmpl_var rs_id>&status=<tmpl_var status>&sd_id=<tmpl_var sd_id>&sd_name=<tmpl_var sd_name>">Change Status</a></td>
+
+        <td align=center><a href="/view/stock/edit_rs_chip?rs_id=<tmpl_var rs_id>&sd_id=<tmpl_var sd_id>&ref_type_id=<tmpl_var ref_type_id>&sd_name=<tmpl_var sd_name>">Edit</a> |
+<a href="/modify/stock/delete_rs_chip?rs_id=<tmpl_var rs_id>&sd_id=<tmpl_var sd_id>&sd_name=<tmpl_var sd_name>">Delete</a></td>
+
+</tr>
+</tmpl_loop>
+</table><br/>
+<form action='/modify/stock/add_rs_chip'>
+<table border=0 cellspacing=2 cellpadding=0 with='60%'>
+<table>
+  
+	<input type=hidden name=sd_id value='<tmpl_var sd_id>'>
+	<input type=hidden name=sd_name value='<tmpl_var sd_name>'>
+<tr>
+        <td>ro number </td><td><input type=text name=rs_number value=''>
+         </td><td> (eg.:62817xxxx) </td>
+</tr>
+<tr>
+        <td>outlet name</td>
+	<td>
+	<select name=outlet_id>
+        <option value=0></option>
+        <tmpl_loop select_outlet_names>
+        <option value=<tmpl_var outlet_id>><tmpl_var outlet_name></option>
+        </tmpl_loop>
+        </select>
+	</td>
+</tr>
+<tr>
+        <td>member name</td>
+	<td>
+	<select name=member_id>
+        <option value=0></option>
+        <tmpl_loop member>
+        <option value=<tmpl_var member_id>><tmpl_var member_name></option>
+        </tmpl_loop>
+        </select>
+	</td>
+</tr>
+<tr>
+        <td>ro type </td><td>
+                <select name=rs_type_id>
+                <option value=0></option>
+                <tmpl_loop type_options>
+                <option value=<tmpl_var rs_type_id>><tmpl_var type_name></option>
+                </tmpl_loop>
+                </td>
+</tr>
+<tr>
+        <td>&nbsp;</td><td><input type=submit name=op value='add ro'></td>
+<tr>
+</tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

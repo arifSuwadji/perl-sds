@@ -1,0 +1,27 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Add Product </h3>
+
+<form action='/modify/stock/add_stock_ref'>
+<table border=0 cellspacing=2 cellpadding=0 width='40%'>
+<tr><td>Product Name</td><td><input type=text name=stock_ref_name value=''></td></tr>
+<tr><td>Keyword</td><td><input type=text name=keyword value=''></td></tr>
+<tr><td>Value</td><td><input type=text name=nominal value=''></td></tr>
+<tr><td>Stock Group</td>
+	<td><select name ="ref_type_id">
+		<tmpl_loop stock_ref_type>
+		<option value="<tmpl_var ref_type_id>"><tmpl_var ref_type_name></option>
+		</tmpl_loop>
+	    </select>
+	</td>
+</tr>
+<tr><td>Max. Quantity</td><td><input type=text name=max_qty value='' size=10></td> 
+<!--<tr><td>Price Server</td><td><input type=text name=price_server value=''></td></tr>-->
+<!--<tr><td>Price Retailer</td><td><input type=text name=price_canvaser value=''></td></tr>-->
+
+<tmpl_loop price_type>
+	<tr><td><tmpl_var type_name></td><td><input type=text name=<tmpl_var rs_type_id> size=10></td></tr>	
+</tmpl_loop>
+<tr><td>&nbsp;</td><td><input type=submit name=op value='Add Product'></td></tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

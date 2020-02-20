@@ -1,0 +1,18 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit Stock-Reference </h3>
+
+
+<form action='/modify/stock/edit_stock_ref'>
+<table border=0 cellspacing=2 cellpadding=0 width='40%'>
+<tr><td> Reference Name </td><td> <input type=text name=stock_ref_name value='<tmpl_var stock_ref_name>'></td></tr>
+<tr><td> Keyword </td><td> <input type=text name=keyword value='<tmpl_var keyword>'></td></tr>
+<tr><td> Value </td><td> <input type=text name=nominal value='<tmpl_var nominal>'>
+<tr><td> Max. Qty </td><td> <input type=text name=max_qty value='<tmpl_var max_qty>' size=10></td></tr>
+<tr><td> Price Server</td><td> <input type=text name=price_server value='<tmpl_var price_server>'></td></tr>
+<tr><td> Price Retailer</td><td> <input type=text name=price_canvaser value='<tmpl_var price_canvaser>'></td></tr>
+<input type=hidden name=stock_ref_id value='<tmpl_var stock_ref_id>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'></td></tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

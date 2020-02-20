@@ -1,0 +1,42 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Detail Package <tmpl_var pkg_name></h3>
+
+
+<table class="list" cellspacing=2 width='60%'>
+<tr> 
+	<th>#</th>
+	<th> Product </th>
+	<th> Quantity </th>
+	<th> Action</th> 
+<tmpl_loop list_detail>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var keyword></td>
+	<td><tmpl_var pkg_qty></td>
+	<td align=center>
+		<a href='/view/stock/edit_detail_package?id=<tmpl_var pkg_qty>'>Edit</a> |
+		<a href='/modify/stock/delete_detail_package?id=<tmpl_var pkg_qty>&pkg=<tmpl_var pkg_id>&stock=<tmpl_var stock_ref_id>&name=<tmpl_var pkg_name>' >Delete</a>
+	</td>
+	
+</tr>
+</tmpl_loop>
+</table>
+<br>
+<form action=/modify/stock/add_dtl_pkg>
+<input type=hidden name=pkg_id value=<tmpl_var pkg_id>>
+<table>
+<tr>	<td>&nbsp;</td>	
+	<td> 
+		<select name=stock_ref_id> 
+			<option value=0> </option>
+			<tmpl_loop list_stock>
+			<option value=<tmpl_var stock_ref_id>><tmpl_var keyword></option>
+			</tmpl_loop list_stock>
+		</select> 
+		<input type=text name=pkg_qty value=''>  
+		<input type=submit name=op value='Add'>
+	</td>
+</tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

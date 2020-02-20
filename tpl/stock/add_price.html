@@ -1,0 +1,22 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Add Price</h3>
+<FORM class="inti" action="/modify/stock/add_price">
+        <label>Stock Name</label>
+            <select name=stock_ref>
+                <option value="0">Select</option>
+                <tmpl_loop stock_ref>
+                <OPTION VALUE="<tmpl_var stock_ref_id>"<tmpl_if selected> selected</tmpl_if>><tmpl_var stock_ref_name></OPTION>
+                </tmpl_loop>
+            </select>
+        <label>Price Type</label>
+            <select name=rs_type>
+                <option value="0">Select</option>
+                <tmpl_loop rs_type>
+                <OPTION VALUE="<tmpl_var rs_type_id>"<tmpl_if selected> selected</tmpl_if>><tmpl_var type_name></OPTION>
+                </tmpl_loop>
+            </select>
+        <label>Price </label><input type=text name=price><br/>
+        <input type=submit value=Add name=op>
+</FORM>
+
+<tmpl_var 'INCL:/common/footer'>

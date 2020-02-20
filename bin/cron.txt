@@ -1,0 +1,8 @@
+* * * * * perl bin/check.pl >> /log/sds/check.log 2>&1 &
+1 0 * * * perl bin/reversal.pl >> /log/sds/reversal.log 2>1 &
+1 0 * * * perl bin/remove_price.pl >> /log/sds/remove_price.log 2>1 &
+1 0 * * * perl bin/remove_old_price.pl >> /log/sds/remove_old_price.log 2>1 &
+0 4 * * * perl bin/reminder.pl >> /log/sds/reminder.log 2>1 &
+1 08-17 * * 1-5 perl bin/sms_cvs.pl >> /log/sds/sms_cvs.log 2>1 &
+4 0 * * * perl bin/reminder.pl >> /log/sds/reminder.log 2>1 &
+1 11,16 * * 1-5 perl bin/note_cvs.pl >> /log/sds/note_cvs.log 2>1 &

@@ -1,0 +1,23 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Lock Summary</h3>
+
+<form name=lock_totalan action='/modify/transaction/lock_totalan'>
+<table width=60%>
+<tr>
+	<td> from </td>
+	<td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>	
+</tr>
+<tr>
+	<td> until </td>
+	<td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>	
+</tr>
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+<!--<tr>Note = Pilih tanggal from / until transaksi  yang akan di lock-->
+
+</tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

@@ -1,0 +1,57 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Transaction Detail</h3>
+
+<table width=80% class=list>
+<form name=reversal method=GET action='/modify/transaction/reversal'>
+<input type=hidden name=trans_id value=<tmpl_var trans_id>>
+<tr><td align=right><b>trx status</b></td><td><tmpl_var topup_status></td></tr>
+<tr><td align=right><b>trx id</b></td><td><tmpl_var trans_id></td></tr>
+<tr><td align=right><b>topup id</b></td><td><tmpl_var topup_id></td></tr>
+<tr><td align=right><b>destination ro</b></td><td><tmpl_var rs_number></td></tr>
+<tr><td align=right nowrap><b>sub-master name</b></td><td><tmpl_var sd_name></td></tr>
+<tr><td colspan=2><hr></td></tr>
+<tr><td align=right nowrap><b>topup queue entry</b></td><td><tmpl_var topup_ts></td></tr>
+<tr><td align=right nowrap><b>transaction datetime</b></td><td><tmpl_var trans_date> <tmpl_var trans_time></td></tr>
+<tr><td align=right nowrap><b>execution datetime</b></td><td><tmpl_var exec_ts></td></tr>
+<tr><td align=right nowrap><b>report datetime</b></td><td><tmpl_var local_ts></td></tr>
+<tr><td align=right><b>report msg</b></td><td><tmpl_var log_msg></td></tr>
+<tr><td colspan=2><hr></td></tr>
+<tr><td align=right><b>sms id</b></td><td><tmpl_var sms_id></td></tr>
+<tr><td align=right><b>from</b></td><td><tmpl_var username></td></tr>
+<tr><td align=right><b>sms time</b></td><td><tmpl_var sms_time></td></tr>
+<tr><td align=right><b>sms localtime</b></td><td><tmpl_var sms_localtime></td></tr>
+<tr><td align=right><b>sms in</b></td><td><tmpl_var sms_int></td></tr>
+<tr><td align=right><b>out time</b></td><td><tmpl_var out_ts></td></tr>
+<tr><td align=right><b>sms out/reply</b></td><td><tmpl_var out_msg></td></tr>
+
+<tr><td>&nbsp;</td><td><tmpl_if reversal_status><input type=submit name=op value=reversal></tmpl_if></form>
+
+<form name=reversal_uniq method=GET action='/modify/transaction/reversal_uniq'>
+<input type=hidden name=trans_id value=<tmpl_var trans_id>>
+<input type=hidden name=approv value=1>
+
+<tmpl_if uniq><input type=submit name=op value='reversal unique'></tmpl_if>
+</form>
+
+<form name=approv method=GET action='/modify/transaction/lock_reversal'>
+<input type=hidden name=trans_id value=<tmpl_var trans_id>>
+<tmpl_if locked><input type=submit name=op value='LOCK'></tmpl_if></form>
+
+<form name=approv method=GET action='/modify/transaction/lock_reversal'>
+<input type=hidden name=trans_id value=<tmpl_var trans_id>>
+<tmpl_if lock_reversal><input type=submit name=op value='LOCK REVERSAL'></tmpl_if></form>
+
+<form name=approv method=GET action='/modify/transaction/lock_reversal'>
+<input type=hidden name=trans_id value=<tmpl_var trans_id>>
+<tmpl_if need_approve><input type=submit name=op value='NEED APPROVE'></tmpl_if></form></td></tr>
+
+<tr><td align=right><b>reversal</b></td><td><tmpl_var reversal></td></tr>
+
+<form name=resend method=GET action='/modify/transaction/reversal'>
+<input type=hidden name=trans_id value=<tmpl_var trans_id>>
+<input type=hidden name=no_reply value=1>
+<tr><td>&nbsp;</td><td><tmpl_unless no_reply><input type=submit name=op value=resend></tmpl_unless></td></tr>
+</form>
+</form>
+</table>
+<tmpl_var 'INCL:/common/footer'>

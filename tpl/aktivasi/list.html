@@ -1,0 +1,95 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Activation List</h3>
+
+<form>
+<table width=100%>
+<tr><td>
+<table width=60%>
+<tr>
+	<td> from </td>
+	<td> <input type=text name=rs_req_ts_from onclick="displayDatePicker('rs_req_ts_from', this, 'dmy', '-');" value=<tmpl_var rs_req_ts_from>></td>	
+</tr>
+<tr>
+	<td> until </td>
+	<td> <input type=text name=rs_req_ts_until onclick="displayDatePicker('rs_req_ts_until', this, 'dmy', '-');" value=<tmpl_var rs_req_ts_until>></td>	
+</tr>
+<tr>
+	<td> rs_req_id from </td>
+        <td> <input type=text name=from value=<tmpl_var from>></td>
+</tr>
+<tr>
+        <td> rs_req_id until </td>
+        <td> <input type=text name=until value=<tmpl_var until>></td>
+</tr>
+</tr>
+<tr>
+        <td> sub-master </td>
+        <td> <input type=text name=sd_number value=<tmpl_var sd_number>></td>
+</tr>
+<tr> <td colspan=2>&nbsp;</td></tr>
+</table>
+</td> <td>
+<table width=50%>
+<tr>
+        <td> ro-number  </td>
+        <td><input type=text name=rs_number value=<tmpl_var rs_number>></td>
+</tr>
+<tr>
+        <td> response  </td>
+        <td><input type=text name=rs_req_response value=<tmpl_var rs_req_response>></td>
+</tr> 
+<tr>
+        <td> modem  </td>
+        <td><input type=text name=modem value=<tmpl_var modem>></td>
+</tr>
+<tr>
+        <td> site  </td>
+        <td><input type=text name=site_name value=<tmpl_var site_name>></td>
+</tr> 
+<tr>
+	<td> status </td>
+	<td> <select name=rs_req_status> <option value=0> ALL </option>
+                <tmpl_loop rs_req_status_options> 
+                <option value=<tmpl_var value> <tmpl_if selected> selected</tmpl_if>><tmpl_var display> </option></tmpl_loop>
+                </select></td>	
+</tr>
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</form>
+<div class="nav_left"><a href="/misc/aktivasi/list.xls?<tmpl_var r_args>">Download Excel Format</a></div>
+<table class="list" cellspacing=2 width='100%'>
+<tr>
+<td colspan=9 align=right><tmpl_var nav></td>
+</tr>
+<tr>
+	<th>#</th>
+	<th>rs_req_id</th>
+	<th>time</th>
+	<th>sub-master</th>
+	<th>ro-number</th>
+	<th>response</th>
+	<th>modem</th>
+	<th>site</th>	
+	<th>status</th>
+</tr>
+
+<tmpl_loop list_report>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><a href="/view/aktivasi/detail?rs_req_id=<tmpl_var rs_req_id>"><tmpl_var rs_req_id></a></td>
+	<td><tmpl_var rs_req_ts></td>
+	<td><tmpl_var sd_number></td>
+	<td><tmpl_var rs_req_number></td>
+        <td><tmpl_var rs_req_response></td>
+	<td><tmpl_var modem></td>
+	<td><tmpl_var site_name></td>
+	<td><tmpl_var rs_req_status></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

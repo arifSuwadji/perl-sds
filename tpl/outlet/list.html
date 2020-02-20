@@ -1,0 +1,87 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3>List Outlet</h3>
+
+<form>
+<table width=40%>
+<tr>
+        <td> outlet name </td>
+        <td> <input type=text name=outlet_name value=<tmpl_var outlet_name>></td>
+</tr>
+<tr>
+        <td> ro number </td>
+        <td> <input type=text name=rs_number value=<tmpl_var rs_number>></td>
+</tr>
+<tr>
+        <td> member name </td>
+        <td><select name=member_name>
+			<option value="<tmpl_var member_name>"><tmpl_var member_name></option>
+			<tmpl_loop member_opt>
+				<option value="<tmpl_var member_name>"><tmpl_var member_name></option>
+			</tmpl_loop>
+		</select</td>
+</tr>
+<tr>
+        <td> status </td>
+        <td><select name=status>
+			<option value="<tmpl_var status>"><tmpl_var status></option>
+			<option value="Active">Active</option>
+			<option value="non-Active">non-Active</option>
+		</select</td>
+</tr>
+<tr>
+        <td> sub district </td>
+        <td> <input type=text name=sub_district value="<tmpl_var sub_district>"></td>
+</tr>
+<tr>
+        <td> site  </td>
+        <td> <tmpl_var 'INCL:/common/site'></td>
+</tr>
+
+<tr>
+        <td>&nbsp;</td><td><input type=submit name=op value=search></td>
+</tr>
+</table>
+</form>
+
+<div class="nav_left"><a href='/view/outlet/add_outlet?birth_date=<tmpl_var birth_date>'>Add Outlet</a></div>
+<div class="nav_right"><tmpl_var nav></div>
+<table class="list" border=0 cellspacing=2 cellpadding=0 width='100%'>
+<div class="nav_left"><a href="/misc/outlet/outlet_list.xls?outlet_name=<tmpl_var outlet_name>&rs_number=<tmpl_var rs_number>&member_name=<tmpl_var member_name>&status=<tmpl_var status>&sub_district=<tmpl_var sub_district>&district=<tmpl_var district>">Download Excel Format</a></div>
+<tr>
+	<th>#</th>
+	<th> ID Outlet</th>
+	<th> Outlet Name</th>
+	<th> Sub-district </th>
+	<th> Member Name </th>
+	<th> Point </th>
+	<th> Status </th>
+	<th> Mobile Phone</th>
+	<th> Outlet Type</th>
+	<th> Max. Credit</th>
+	<th> Balance</th>
+	<th> Manage</th>
+</tr>
+<tmpl_loop list_outlet>
+<tr>
+        <td align=center><tmpl_var _seq></td>
+        <td align=center><tmpl_var outlet_id></td>
+        <td align=center><a href="/view/outlet/view_outlet?id=<tmpl_var outlet_id>"><tmpl_var outlet_name></a></td>
+        <td align=center><tmpl_var sub_district></td>
+        <td align=center><tmpl_var member_name></td>
+        <td align=center><tmpl_var point></td>
+        <td align=center><tmpl_var status></td>
+        <td align=center><tmpl_var mobile_phone></td>
+        <td align=center><tmpl_var type_name></td>
+        <td align=right><tmpl_var plafond></td>
+        <td align=right><a href="/view/outlet/mutation?from=<tmpl_var date_from>&until=<tmpl_var until>&id=<tmpl_var outlet_id>"><tmpl_var balance></a></td>
+	<td align=center>
+                <a href="/view/outlet/edit_outlet?id=<tmpl_var outlet_id>">Edit</a> |
+                <a href="/modify/outlet/delete?id=<tmpl_var outlet_id>">Delete</a>
+        </td>
+
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>
+                                 

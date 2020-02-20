@@ -1,0 +1,78 @@
+<tmpl_var 'INCL:/common/header'>
+
+<form method="post" name="form1" action="/modify/outlet/add_quota_rs">
+<table width="60%"><tr valign=top><td>
+<table cellspacing=2 class=list width='100%'>
+<h3>RS Chip Quota for <tmpl_var rs_number></h3>
+<tr>
+   <th> # </th>
+   <th> stock ref name </th>
+   <th> quota </th>
+   <th> add quota</th>
+</tr>
+<tmpl_loop list_product>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var stock_ref_name></td>
+	<td align=right><tmpl_var quota_format></td>
+	<td align=center><input type="text" style="text-align:right" name="add_qty" value="" size="10"/>
+	<input type="hidden" name="available_qty" value="<tmpl_var quota>"/>
+	<input type="hidden" name="rs_stock_id" id="rs_stock_id" value="<tmpl_var rs_stock_id>"/>
+	<input type="hidden" name="stock_ref_id" value="<tmpl_var stock_ref_id>"/></td>
+</tr>
+</tmpl_loop>
+<tr>
+	<td colspan="5" align="right">
+		<input type="hidden" name="rs_id" value="<tmpl_var rs_id>">
+		<input type="hidden" name="rs_number" value="<tmpl_var rs_number>">
+		<input type="hidden" name="ref_type_id" value="<tmpl_var ref_type_id>">
+		<input type="hidden" name="count_stock" value="<tmpl_var count_stock>">
+		<input type="submit" name="op" value="Add Quota"><br>
+	</td>
+</tr>
+</table></td>
+<td><table>
+<h3> </h3>
+</table></td>
+<td><table cellspacing=2 class=list width='100%'>
+<h3>RS Nominal Quota </h3>
+<tr>
+   <th>rs nominal quota</th>
+   <th>rs balance nominal</th>
+   <th>add rs nominal</th>
+</tr>
+<tr>
+   <td align="right"><tmpl_var rs_nominal_quota_format></td>
+   <td align="right"><tmpl_var rs_balance_nominal></td>
+   <td><input type="hidden" name="available_nominal" value="<tmpl_var rs_nominal_quota>"/>
+   <input type="text" style="text-align:right" name="add_nominal" value="" size="15"/></td>
+</tr>
+<tr>
+   <td colspan=3 align="right"><input type="submit" name="op" value="Add Nominal"></td>
+</tr>
+</table>
+<br>
+<table cellspacing=2 class=list width="100%">
+<h3>All RS Quota</h3>
+
+<tr>
+   <th> qty quota </th>
+   <th> qty balance </th>
+   <th> add qty </th>
+</tr>
+<tr>
+   <td align="right"><tmpl_var rs_qty_quota_format></td>
+   <td align="right"><tmpl_var rs_balance_qty></td>
+   <td><input type="hidden" name="available_qty_all" value="<tmpl_var rs_qty_quota>"/>
+   <input type="text" style="text-align:right" name="add_qty_all" value="" size="15"></td>
+</tr>
+<tr>
+   <td colspan=3 align="right"><input type="submit" name="op" value="Add Qty"></td>
+</tr>
+
+</table>
+</td>
+</tr></table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

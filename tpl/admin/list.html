@@ -1,0 +1,34 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3>List Admin for member : <tmpl_var member_name></h3>
+<br/>
+<div class="nav_left"><a href="/view/member/detail_member?member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>"><< back to member detail</a></div>
+<br/>
+<div class="nav_left"><a href="/view/admin/add_admin?member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>">Add Admin</a></div>
+<table class="list" cellspacing=2 width="60%">
+<tr>
+	<th>#</th>
+	<th>Admin</th>
+	<th>Admin Group</th>
+	<th>Admin Site</th>
+	<th>Admin Stock-type</th>
+	<th>Action</th
+</tr>
+<tmpl_loop list_admin>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var admin_name></td>
+	<td><a href="/view/admin/edit_admin_page?group_id=<tmpl_var adm_gid>&group_name=<tmpl_var adm_group_name>"><tmpl_var adm_group_name></a></td>
+	<td><tmpl_var site_name></td>
+	<td><tmpl_var ref_type_name></td>
+	<td align=center>
+		<a href='/view/admin/edit_admin?id=<tmpl_var admin_id>&member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>'>Edit</a> | 
+		<a href='/modify/admin/delete?id=<tmpl_var admin_id>&member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>'>Delete</a> |
+		<a href='/view/admin/edit_password?id=<tmpl_var admin_id>&member_id=<tmpl_var member_id>&member_name=<tmpl_var member_name>'>Change Password</a>  
+	</td>
+	
+</tr>
+</tmpl_loop>
+</table>
+
+<tmpl_var 'INCL:/common/footer'>

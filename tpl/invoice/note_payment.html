@@ -1,0 +1,15 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3>note bank for outlet <tmpl_var outlet_name></h3>
+
+<form name="note_bank" method="POST" action="/modify/invoice/note_payment">
+<table width="60%">
+<tr>
+	<td> note </td>
+	<td> <input type="text" name=note_bank value="" size="40"/>
+	<input type="hidden" name="inv_id" value="<tmpl_var inv_id>"/>
+	<input type="submit" name="ok" value="save"/></td>
+</tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

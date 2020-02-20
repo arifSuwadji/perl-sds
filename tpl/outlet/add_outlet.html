@@ -1,0 +1,20 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Add Outlet</h3>
+
+<form action='/modify/outlet/add_outlet'>
+<table border=0 cellspacing=2 cellpadding=0 width="80%">
+<tr><td>Outlet Name</td><td><input type=text name=outlet_name value=''></td></tr>
+<tr><td>Address</td><td><input type=text name=address value=''></td></tr>
+<tr><td>District</td><td><input type=text name=district value=''></td></tr>
+<tr><td>Sub-District</td><td><input type=text name=sub_district value=''></td></tr>
+<tr><td>Pos Code</td><td><input type=text name=pos_code value=''></td></tr>
+<tr><td>Owner</td><td><input type=text name=owner value=''></td></tr>
+<tr><td>Birth Date Owner</td><td> <input type=text name=birth_date onclick="displayDatePicker('birth_date', this, 'dmy', '-');"value="<tmpl_var birth_date>"></td></tr>
+<tr><td>Mobile Phone</td><td><input type=text name=mobile_phone value=''> *628xxx, must be filled</td></tr>
+<tr><td>Outlet Type</td><td><select name="opt_type"><option value=""></option><tmpl_loop opt_type><option value="<tmpl_var outlet_type_id>"><tmpl_var type_name></option></tmpl_loop></select></td></tr>
+<tr><td>Max. Credit</td><td><input style="text-size:20;text-align:right;" type="text" name="plafond" value="<tmpl_var plafond>"></td></tr>
+<tr><td>&nbsp;</td><td><input type=submit name=op value='Add Outlet'></td></tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

@@ -1,0 +1,36 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3>Last Target</h3>
+<table class="list" width=60%>
+<tr>
+        <th>From</th>
+        <th>Until</th>
+</tr>
+<tmpl_loop last_target>
+<tr>
+        <td align=center><tmpl_var from_date></td>
+        <td align=center><tmpl_var until_date></td>
+</tr>
+</tmpl_loop>
+<tr>
+</table>
+<br/>
+<br/>
+<h3>Set Target Period</h3>
+<table width=60%>
+<form action ="/modify/member/set_target_period">
+<tr>
+	<td> from </td>
+	<td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>	
+</tr>
+<tr>
+	<td> until </td>
+	<td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>	
+</tr>
+
+<tr>
+	<td>&nbsp;</td><td><input type=submit name=op value=add></td>
+</tr></form>
+</table>
+
+<tmpl_var 'INCL:/common/footer'>

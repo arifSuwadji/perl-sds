@@ -1,0 +1,38 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>Additional User  <tmpl_var membername></h3>
+<form action='/modify/member/update_additional_user'>
+<input type=hidden name=member_id value='<tmpl_var id>'>
+<input type=hidden name=member_name value='<tmpl_var membername>'>
+
+<table class="list" cellspacing=2 width='60%'>
+
+<tr>
+   <th> # </th>
+   <th> Username </th>
+   <th> Status </th>
+   <th> &nbsp; </th>
+</tr>
+
+<tmpl_loop list>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td align=center><tmpl_var username></td>
+	<td align=center><tmpl_var status> | <a href='/modify/member/edit_status_additional?id=<tmpl_var add_user_id>&m_id=<tmpl_var member_id>&m_name=<tmpl_var member_name>'>Ubah status</a></td>
+	<td align=center><input type=checkbox name=user_id value='<tmpl_var add_user_id>'>
+</tr>
+</tmpl_loop>
+<tr>
+        <td></td>
+        <td align=center><input type="text" name="username" value="<tmpl_var username>" size="20"></td>
+        <td align="right"><input type="submit" name="current" value="ADD">&nbsp;&nbsp;<input type=submit name="current" value="DELETE"/></td>
+        <td></td>
+    </tr>
+<tr>
+<td></td>
+<td align=center style="color:red;font-weight:bold;" ><tmpl_var username> <tmpl_var error></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

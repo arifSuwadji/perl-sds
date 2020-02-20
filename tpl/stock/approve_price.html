@@ -1,0 +1,44 @@
+<tmpl_var 'INCL:/common/header'>
+<style type="text/css">
+        table td{border:2px;}                   
+</style> 
+<h3>Pricing Approval</h3>
+
+<FORM method=POST action="/modify/stock/approve_price">
+<table class="list" id="gradient-style"  summary="topuplist list">
+<tr>
+<th rowspan=2>#</th>
+<th rowspan=2>Product Price</th>
+<th rowspan=2>&nbsp;</th>
+<tmpl_loop count>
+<th colspan="<tmpl_var jumlah>">Price (discount for nominal)</th>
+</tmpl_loop>
+<tr>
+<tmpl_loop rs_type>
+<th><tmpl_var type_name><input type=checkbox name=rs_type_id value="<tmpl_var rs_type_id>"> </th>
+</tmpl_loop>
+
+</tr>
+</tr>
+
+<tmpl_loop product><tr onMouseOver="this.className='highlight'" onMouseOut="this.className=''" bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>' valign=top>
+    <td><tmpl_var seq></td>
+    <td><tmpl_var keyword></td>
+        <td><input type=checkbox name=stock_ref_id value="<tmpl_var stock_ref_id>"></td>
+        <tmpl_loop rs_type_price><td align=center><input type=text style="text-align: right" size=6 name="p<tmpl_var name>" value="<tmpl_var value>"></td>
+        </tmpl_loop>
+  </tr>
+  </tmpl_loop>
+
+
+
+</table>
+<div style=>
+		<input type=submit value='approve'>
+</div>
+		<!--<input type=submit value='delete member type' onClick="this.form.action='/modify/member/del_type.evo'">-->
+</tr>
+
+</form>
+<tmpl_var 'INCL:/common/footer'>
+

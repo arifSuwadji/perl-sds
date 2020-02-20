@@ -1,0 +1,12 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit Modem </h3>
+
+<form action='/modify/stock/edit_modem'>
+<table border=0 cellspacing=2 cellpadding=0 width='40%'>
+<tr><td> modem name </td><td> <input type=text name=modem_name value='<tmpl_var modem_name>'></td></tr>
+<input type=hidden name=modem_id value='<tmpl_var modem_id>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'></td></tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

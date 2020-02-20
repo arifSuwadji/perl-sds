@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+  <title>Stock Distribution Admin</title>
+  <link rel="stylesheet" type="text/css" href="/mps.css" />
+  <link rel="stylesheet" type="text/css" href="/component.css" />
+  <link rel="stylesheet" type="text/css" href="/date-picker.css" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <script language="JavaScript" src="/date-picker.js"></script>
+ </HEAD>
+<BODY topmargin=0 leftmargin=0 rightmargin=0>
+<div id="header">
+        <div id="logo">
+        <br/><br/><br/>
+        <h2>SDS - Stock Distribution System</h2>
+        </div>
+        <div id="logo-right"></div> 
+</div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td nowrap bgcolor=#dddddd width=650 >login as : <tmpl_var username>&nbsp;&nbsp;&nbsp;<TMPL_VAR now></td>
+    
+    <!--td bgcolor=#dddddd align=right-->
+    <td class=menu bgcolor=#dddddd width=800>
+      <ul>
+        <li><a href="#">Transaction
+	  <!--[if IE 7]><!--></a><!--<![endif]-->
+          <!--[if lte IE 6]><table><tr><td><![endif]-->
+          <ul>
+		    <tmpl_unless adm_gid_5><li><a href="/view/transaction/list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>"> Topup List</a></li></tmpl_unless>
+            <tmpl_unless adm_gid_5><li><a href="/view/transaction/double_list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Double Topup List</a></li></tmpl_unless>
+            <li><a href="#">Dompul List</a>
+				<ul>
+					<li><a href="/view/transaction/dompul_list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Nominal List</a></li>
+					<li><a href="/view/transaction/voucher_list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Voucher List</a></li>
+				</ul>
+			</li>
+             <li><a href="/view/transaction/dep_list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Deposit List</a></li>
+             <li><a href="/view/topup/topup_rank?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Topup Rank</a></li>
+            <li><a href="/view/transaction/new_topup">New Topup</a></li>
+            <li><a href="/view/transaction/new_deposit">New Deposit</a></li>
+            <li><a href="/view/transaction/new_transfer">New Transfer</a></li>
+            <li><a href="/view/transaction/topup_report?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Topup Report</a></li>
+            <li><a href="/view/topup/topup_upload">New Topup-Upload</a></li>
+            <li><a href="/view/topup/perdana_upload">Perdana-Upload</a></li>
+            <li><a href="/view/topup/edit_topup">Edit Topup Request</a></li>
+<tmpl_unless stock_ref_type>
+            <li><a href="/view/transaction/lock_totalan?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Lock Summary</a></li>
+</tmpl_unless>
+          </ul>
+	  <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+        <li><a href="#nogo">Member
+	  <!--[if IE 7]><!--></a><!--<![endif]-->
+          <!--[if lte IE 6]><table><tr><td><![endif]-->
+          <ul>
+            <li><a href="/view/member/list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>&status=Active">List Member</a></li>
+            <li><a href="/view/outlet/list?status=Active&birth_date=<tmpl_var _ymd>">List Outlet</a></li>
+            <li><a href="/view/outlet/outlet_type">Outlet Type</a></li>
+          </ul>
+	  <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+
+	<li><a href="#nogo">Stock
+	  <!--[if IE 7]><!--></a><!--<![endif]-->
+          <!--[if lte IE 6]><table><tr><td><![endif]-->
+          <ul>
+            <li><a href="/view/stock/list">List Stock</a></li>
+            <li><a href="/view/stock/stock_mutation?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Stock mutation</a></li>
+            <li><a href="/view/stock/total_stock?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Total Stock</a></li>
+	    	<li><a href="/view/stock/approve_stock?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Approve Stock</a>
+          </ul>
+	  <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+	<tmpl_unless adm_gid_5><li><a href="#setting">Setting</a>
+		<ul>
+			<li><a href="/view/stock/edit_price">List Price</a>
+			<li><a href="/view/stock/edit_for_approve">Edit Price</a>
+			<li><a href="/view/stock/approve_price">Approve Price</a>
+			<li><a href="/view/stock/price_type">List Price Type</a>
+			<li><a href="/view/stock/list_site">List Site</a></li>
+			<li><a href="/view/stock/list_stock_ref">List Product</a></li>
+			<li><a href="/view/stock/list_package">Package</a></li>
+			<li><a href="/view/setting/admin_log?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Admin Log</a></li>
+			<li><a href="#">Reg Perdana</a>
+				<ul>
+					<li><a href="/view/setting/reg_list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">List</a></li>
+					<li><a href="/view/setting/reg_command">setting command</a></li>
+				</ul>
+			</li>
+
+		</ul>
+	</li></tmpl_unless>
+	<li><a href="#financial">Financial</a>
+		<ul>
+			<li><a href="/view/invoice/list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">List Invoice</a></li>
+			<li><a href="/view/invoice/invoice_due?until=<tmpl_var _ymd>">Invoice Due</a></li>
+			<li><a href="/view/invoice/invoice_payment?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Payment of Invoice</a></li>
+			<li><a href="/view/invoice/invoice_report?until=<tmpl_var _ymd>">Invoice Report</a></li>
+			<li><a href="/view/invoice/cash_receipt?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Cash Receipt</a></li>
+			<li><a href="/view/invoice/bank_receipt?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Bank Receipt</a></li>
+			<li><a href="/view/invoice/financial_report?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">Financial Report</a></li>
+		</ul>
+	</li>
+<tmpl_unless stock_ref_type>
+ 	<li><a href="#nogo">SMS
+	  <!--[if IE 7]><!--></a><!--<![endif]-->
+          <!--[if lte IE 6]><table><tr><td><![endif]-->
+          <ul>
+            <li><a href="/view/sms/list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">List SMS</a></li>
+            <li><a href="/view/smsc/list">List SMSC</a></li>
+            <li><a href="/view/sms_rs/list?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>">List SMS RS</a></li>
+          </ul>
+	  <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>	
+</tmpl_unless>
+	<li><a href="/modify/logout?url=<TMPL_VAR _url>">Logout
+	  <!--[if IE 7]><!--></a><!--<![endif]-->
+          <!--[if lte IE 6]><table><tr><td><![endif]-->
+          <ul>
+          </ul>
+	  <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<div style="width:400px;height:50px;float:right;"><br><div>Approve Stock : <a href="/view/stock/approve_stock?from=<tmpl_var _ymd>&until=<tmpl_var _ymd>"><tmpl_var count></a> Need Approve</div></div>
+<div class="content">
+<!--  border:1px solid white; -->

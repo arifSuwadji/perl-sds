@@ -1,0 +1,29 @@
+<TMPL_include "../header.html">
+
+<h3>RO Stock Request Approve (view only)</h3>
+
+<table class=data border=0 cellspacing=1 cellpadding=2 width=100%>
+  <tr><td colspan=3>
+       <!-- <a href="/misc/stock/rs_stock.xls?<tmpl_var r_args>">Download Excel Format</a>-->
+  </td></tr>
+  <tr valign=top align=center>
+    <th rowspan=2 valign=center>#</th>
+    <th rowspan=2 valign=center>rs_number</th>
+    <th colspan="<tmpl_var stock_ref_count>">request</th>
+    <th colspan="<tmpl_var stock_ref_count>">approve</th>
+  </tr>
+  <tr valign=top align=center>
+        <tmpl_loop stock_keyword><th><tmpl_var keyword></th></tmpl_loop>
+	<tmpl_loop stock_keyword><th><tmpl_var keyword></th></tmpl_loop>
+  </tr>
+
+  <tmpl_loop list><!--<tr onMouseOver="this.className='highlight'" onMouseOut="this.className=''" bgcolor='<tmpl_unless __odd__>#cfcfcf</tmpl_unless>' valign=top>-->
+    <td align=center><tmpl_var _seq></td>
+    <td><tmpl_var rs_number></td>
+    <td align=center><tmpl_var requests></td>
+    <td align=center><tmpl_var approves></td>
+  </tr>
+  </tmpl_loop>
+</table>
+<TMPL_include "../footer.html">
+

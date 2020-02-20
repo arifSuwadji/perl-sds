@@ -1,0 +1,30 @@
+<tmpl_var 'INCL:/common/header'>
+<h3>detail target <tmpl_var name></h3>
+<form name=delete_username action='/modify/member/delete_username'>
+<input type=hidden name=member_id value='<tmpl_var id>'>
+<input type=hidden name=member_name value='<tmpl_var name>'>
+<table class="list" cellspacing=2 width='60%'>
+<tr><td colspan=11 align=right><tmpl_var nav></td></tr>
+<tr>
+   <th> # </th>
+   <th> name </th>
+   <th> outlet</th>
+   <th> day </th>
+   <th> qty target </th>
+   <th> nominal target </th>
+</tr>
+
+<tmpl_loop list>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td align=center><tmpl_var member_name></td>
+	<td align=center><tmpl_var outlet_name></td>
+	<td align=center><tmpl_var day></td>
+	<td align=center><tmpl_var qty_target></td>
+	<td align=center><tmpl_var nominal_target></td>
+</tr>
+</tmpl_loop>
+</form>
+</table>
+
+<tmpl_var 'INCL:/common/footer'>

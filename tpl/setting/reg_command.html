@@ -1,0 +1,65 @@
+<tmpl_var 'INCL:/common/header'>
+<form name="" method="post" enctype="multipart/form-data" action="/modify/setting/reg_command">
+<h3>Setting Command</h3>
+<table  class="list" cellspacing=2 width='100%'>
+	<tr>
+		<th>No</th>
+		<th>Name</th>
+		<th>type</th>
+		<th>Format</th>
+		<th>Receiver</th>
+		<th>Action</th>
+	</tr>
+	<tmpl_loop cmd>
+	<tr>
+		<td><tmpl_var _seq></td>
+		<td><tmpl_var cmd_name></td>
+		<td><input type="text" name="upd_type<tmpl_var cmd_id>" value="<tmpl_var type>" size="5" /></td>
+		<td><input type="text" name="upd_form<tmpl_var cmd_id>" value="<tmpl_var command>" size="40"></td>
+		<td><input type="text" name="upd_receiver<tmpl_var cmd_id>" value="<tmpl_var receiver>" /></td>
+		<td align="center"><input type="checkbox" name="take" value="<tmpl_var cmd_id>"></td>
+	</tr>
+	</tmpl_loop>
+	<tr>
+		<td></td>
+		<td><input type="text" name="filename" value="" size="10"></td>
+		<td><input type="text" name="type" value="" size="5"></td>
+		<td><input type="text" name="form_set" value="" size="40"></td>
+		<td><input type="text" name="receiver" value=""></td>
+		<td align="right"><input type="submit" name="current" value="ADD">&nbsp;&nbsp;<input type=submit name="current" value="UPDATE"/></td>
+	</tr>
+	<tr>
+		<td colspan=10 align=right><input type=submit name="current" value="DELETE"/></td>
+	</tr>
+</table>
+<br>
+<h3>Setting Modem</h3>
+<table class="list" cellspacing=2 width='60%'>
+	<tr>
+		<th>No</th>
+		<th>Modem Name</th>
+		<th>PIN</th>
+		<th>Status</th>
+		<th>Action</th>
+		<th></th>
+	</tr>
+	<tmpl_loop modem>
+	<tr>
+		<td><tmpl_var _seq></td>
+		<td width="50px"><input type="text" name="chmodem<tmpl_var modem_id>" value="<tmpl_var modem_name>" size="30"></td>
+		<td width="10px"><input type="text" name="chpin<tmpl_var modem_id>" value="<tmpl_var pin>" size="10"></td>
+		<td><tmpl_var status></td>
+		<td><a href="/modify/setting/modem?modem_id=<tmpl_var modem_id>&status=<tmpl_var upd_status>">Change Status</a></td>
+		<td align="center"><input type="checkbox" name="chkmodem" value="<tmpl_var modem_id>"></td>
+	</tr>
+	</tmpl_loop>
+	<tr>
+		<td></td>
+		<td valign="top"><input type="text" name="modemname" value=""></td>
+		<td valign="top"><input type="text" name="pin" value="" size="6"></td>
+		<td colspan="2" align="right"><input type="submit" name="current" value="ADD_MODEM"></td><td align="center">
+		<input type="submit" name="current" value="UPD_MODEM"></td>
+	</tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

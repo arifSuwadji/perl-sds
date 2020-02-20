@@ -1,0 +1,117 @@
+<tmpl_var 'INCL:/common/header'>
+<a href='/view/outlet/list'>&lt;&lt; back to outlet list</a>
+<br/>
+<br/>
+<form method="post" name="form1" action="/modify/outlet/add_quota_outlet">
+<table width="90%"><tr valign=top><td>
+<table border=0 cellspacing=2 cellpadding=0 width="100%">
+<h3> View Outlet</h3>
+<tr><td>Outlet Name</td><td><input size="30" type=text name=outlet_name value='<tmpl_var outlet_name>' readonly></td></tr>
+<tr><td>Address</td><td><input size="50" type=text name=address value='<tmpl_var address>' readonly></td></tr>
+<tr><td>District</td><td><input type=text name=district value='<tmpl_var district>' readonly></td></tr>
+<tr><td>Sub-District</td><td><input type=text name=sub_district value='<tmpl_var sub_district>' readonly></td></tr>
+<tr><td>Pos Code</td><td><input size="10" type=text name=pos_code value='<tmpl_var pos_code>' readonly></td></tr>
+<tr><td>Owner</td><td><input type=text name=owner value='<tmpl_var owner>' readonly></td></tr>
+<tr><td>Birth Date Owner</td><td> <input type=text name=birth_date onclick="displayDatePicker('birth_date', this, 'dmy', '-');"value="<tmpl_var birth_date>"></td></tr>
+<tr><td>Mobile Phone</td><td><input size="12" type=text name=mobile_phone value='<tmpl_var mobile_phone>' readonly></td></tr>
+<tr><td>Outlet Type</td><td><select name="opt_type"><option value="<tmpl_var outlet_type_id>"><tmpl_var type_name></option><tmpl_loop opt_type><option value="<tmpl_var outlet_type_id>"><tmpl_var type_name></option></tmpl_loop></select></td></tr>
+<tr><td>Max. Credit</td><td><input style="text-size:20;text-align:right;" type="text" name="plafond" value="<tmpl_var plafond>"></td></tr>
+<tr><td>Status</td><td><select name="status"><option value="tmpl_var status"><tmpl_var status></select></td></tr>
+</table></td>
+<td>
+<table cellspacing=2 class=list width='100%'>
+<h3>Outlet Quota</h3>
+
+<tr>
+   <th> # </th>
+   <th> stock ref name </th>
+   <th> quota </th>
+   <th> add quota</th>
+</tr>
+<tmpl_loop list_product>
+<tr>
+	<td align=center><tmpl_var _seq></td>
+	<td><tmpl_var stock_ref_name></td>
+	<td align=right><tmpl_var quota_format></td>
+	<td><input type="text" style="text-align:right" name="add_qty" value="" size="10"/>
+	<input type="hidden" name="available_qty" value="<tmpl_var quota>"/>
+	<input type="hidden" name="outlet_quota_id" id="outlet" value="<tmpl_var outlet_quota_id>"/>
+	<input type="hidden" name="stock_ref_id" value="<tmpl_var stock_ref_id>"/></td>
+</tr>
+</tmpl_loop>
+<tr>
+	<td colspan="5" align="right">
+		<input type="hidden" name="outlet_id" value="<tmpl_var outlet_id>">
+		<input type="hidden" name="ref_type_id" value="<tmpl_var ref_type_id>">
+		<input type="hidden" name="count_stock" value="<tmpl_var count_stock>">
+		<input type="submit" name="op" value="Add Quota"><br>
+	</td>
+</tr>
+</table>
+</td>
+<td><table>
+<h3></h3>
+</table></td>
+<td>
+<table cellspacing=2 class=list width='100%'>
+<h3>Outlet Nominal Quota</h3>
+<tr>
+   <th> nominal quota </th>
+   <th> balance nominal </th>
+   <th> add nominal </th>
+</tr>
+<tr>
+   <td align="right"><tmpl_var nominal_quota_format></td>
+   <td align="right"><tmpl_var balance_nominal></td>
+   <td><input type="hidden" name="available_nominal" value="<tmpl_var nominal_quota>"/>
+	<input type="text" style="text-align:right" name="add_nominal" value="" size="15"/></td>
+</tr>
+<tr>
+   <td colspan=3 align="right"><input type="submit" name="op" value="Add Nominal"></td>
+</tr>
+
+</table>
+<br>
+<table cellspacing=2 class=list width="100%">
+<h3>All Outlet Quota</h3>
+
+<tr>
+   <th> qty quota </th>
+   <th> qty balance </th>
+   <th> add qty </th>
+</tr>
+<tr>
+   <td align="right"><tmpl_var qty_quota_format></td>
+   <td align="right"><tmpl_var balance_qty></td>
+   <td><input type="hidden" name="available_qty_all" value="<tmpl_var qty_quota>"/>
+	<input type="text" style="text-align:right" name="add_qty_all" value="" size="15"></td>
+</tr>
+<tr>
+   <td colspan=3 align="right"><input type="submit" name="op" value="Add Qty"></td>
+</tr>
+
+</table>
+</td>
+</tr></table>
+</form>
+<br/>
+<h3>Chip RO : </h3>
+<table class="list" cellspacing=2 width='60%'>
+<tr><td colspan=10 align=right><tmpl_var ro_nav></td></tr>
+<tr>
+   <th> # </th>
+   <th> ro number </th>
+   <th> sub master number </th>
+   <th>Chip</th>
+</tr>
+
+<tmpl_loop ro_list>
+<tr>
+        <td align=center><tmpl_var _seq></td>
+        <td><a href="/view/outlet/detail_rs?rs_id=<tmpl_var rs_id>&ref_type_id=<tmpl_var ref_type_id>&rs_number=<tmpl_var rs_number>"><tmpl_var rs_number></a></td>
+	<td><tmpl_var sd_name> [<tmpl_var sd_number>]</td>
+	<td><tmpl_var rs_chip_type></td>
+</tr>
+</tmpl_loop>
+</table>
+<tmpl_var 'INCL:/common/footer'>

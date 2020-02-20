@@ -1,0 +1,69 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3>Outlet Type Price</h3>
+<form method="post" action="/modify/outlet/outlet_type">
+<table width=100%><tr valign=top>
+<td><table width=50%>
+<h3>Add Type</h3>
+	<tr>
+		<td>Type Name</td>
+		<td><input type="text" name="type_name" value=""></td>
+	<tr>
+	<tr>
+		<td>Period</td>
+		<td><input type="text" name="period" value=""></td>
+	<tr>
+	<tr>
+		<td><input type="submit" name="op" value="Add_Type"></td>
+	</tr>
+</table></td>
+<td>
+<table class="list" border=0 cellspacing=2 cellpadding=0 width='100%'>
+<h3>List Type</h3>
+	<tr>
+		<th>No</th>
+		<th>Type Name</th>
+		<th>Period</th>
+		<th>#</th>
+	</tr>
+	<tmpl_loop o_type>
+	<tr>
+		<td><tmpl_var _seq></td>
+		<td><tmpl_var type_name></td>
+		<td align="center"><tmpl_var period> Day</td>
+		<td align="center"><input type="checkbox" name="o_t_id" value="<tmpl_var outlet_type_id>"></td>
+	</tr>
+	</tmpl_loop>
+	<tr>
+		<td colspan="4" align="right"><input type="submit" name="op" value="Delete"></td>
+	</tr>
+</table></td>
+</table>
+</form>
+<br>
+<form method="post" action="/modify/outlet/serial">
+<table class="list" border=0 cellspacing=2 cellpadding=0 width='100%'>
+	<tr>
+		<th rowspan="2">No</th>
+		<th rowspan="2">Product Price</th>
+		<th colspan="<tmpl_var count>">Price Type</th>
+		<th rowspan="2">Action</th>
+	</tr>
+	<tr>
+		<tmpl_loop head>
+		<th><tmpl_var type_name> Period <tmpl_var period> Day</th>
+		</tmpl_loop>
+	</tr>
+	<tmpl_loop list>
+	<tr>
+		<td><tmpl_var _seq></td>
+		<td><a href="/view/outlet/edit_outlet_type?id_stock=<tmpl_var stock_ref_id>&ref_name=<tmpl_var stock_ref_name>"><tmpl_var stock_ref_name></a></td>
+		<tmpl_var price>
+		<td align="center"> <input type="checkbox" name="up_down" value="<tmpl_var stock_ref_id>"\>
+							<input type="submit" name="up" value="/\" style="font-size:8px;"\>
+							<input type="submit" name="down" value="\/" style="font-size:8px;"\></td>
+	</tr>
+	</tmpl_loop>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>

@@ -1,0 +1,13 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit Price Type </h3>
+
+<form action='/modify/stock/edit_price_type'>
+<tmpl_loop rs_type>
+<table border=0 cellspacing=2 cellpadding=0 width='40%'>
+<tr><td>Price Type</td><td><input type=text name=price_type value='<tmpl_var type_name>'></td></tr>
+<tr><td>&nbsp;</td><td><input type=submit name=op value='Update price type'></td></tr>
+<input type="hidden" name="id" value="<tmpl_var rs_type_id>">
+</table>
+</tmpl_loop>
+</form>
+<tmpl_var 'INCL:/common/footer'>

@@ -1,0 +1,33 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit Admin for member : <tmpl_var member_name></h3>
+
+
+<form action='/modify/admin/edit_admin'>
+<table border=0 cellspacing=2 cellpadding=0 width=60%>
+<tr><td> Admin Name </td><td> <input type=text name=admin_name value='<tmpl_var admin_name>'></td></tr>
+<tr><td> Admin Grop</td><td>
+<select name = adm_gid>
+<tmpl_loop list_group_option><option value='<tmpl_var adm_gid>' '<tmpl_if selected>selected</tmpl_if>'><tmpl_var adm_group_name></option></tmpl_loop>
+</select></td></tr>
+<tr><td>Admin Site</td><td>
+<select name = site_id>
+<option value=''> </option>
+<tmpl_loop list_site_name>
+<option value='<tmpl_var site_id>' '<tmpl_if selected>selected</tmpl_if>'><tmpl_var site_name></option></tmpl_loop>
+</select></td></tr>
+
+<tr><td> Admin Stock-type</td><td>
+<select name = ref_type_id>
+<option value=''> </option>
+<tmpl_loop list_admin_stock><option value='<tmpl_var ref_type_id>' '<tmpl_if selected>selected</tmpl_if>'><tmpl_var ref_type_name></option></tmpl_loop>
+</select></td></tr>
+
+
+<input type=hidden name=admin_id value='<tmpl_var id>'>
+<input type=hidden name=member_id value='<tmpl_var member_id>'>
+<input type=hidden name=member_name value='<tmpl_var member_name>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'></td></tr>
+</table>
+</form>
+<tmpl_var 'INCL:/common/footer'>
+

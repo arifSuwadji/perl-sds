@@ -1,0 +1,15 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit sub-Master </h3>
+
+
+<form action='/modify/stock/edit_stock_sd_chip'>
+<table width='60%'>
+<tr><td width=35%> sub-Master name </td><td> <input type=text name=sd_name value='<tmpl_var sd_name>'></td></tr>
+<tr><td> sub-Master pin </td><td> <input type=text name=pin value='<tmpl_var pin>'> </td></tr>
+<tr><td> Modem </td><td> <input type=text name=modem value='<tmpl_var modem>'> </td></tr>
+<input type=hidden name=sd_id value='<tmpl_var sd_id>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=op value='Update'></td></tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

@@ -1,0 +1,15 @@
+<tmpl_var 'INCL:/common/header'>
+<h3> Edit Detail Product <tmpl_var keyword></h3>
+
+
+<form action='/modify/stock/edit_detail_package'>
+<table width='60%'>
+<tr><td width=35%> Quantity </td><td> <input type=text name=pkg_qty value='<tmpl_var pkg_qty>'></td></tr>
+<input type=hidden name=pkg_id value='<tmpl_var pkg_id>'>
+<input type=hidden name=stock_ref_id value='<tmpl_var stock_ref_id>'>
+<input type=hidden name=pkg_name value='<tmpl_var pkg_namne>'>
+<tr><td> &nbsp; </td><td> <input type=submit name=dp value='Update'></td></tr>
+</table>
+</form>
+
+<tmpl_var 'INCL:/common/footer'>

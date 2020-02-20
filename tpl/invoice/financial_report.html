@@ -1,0 +1,69 @@
+<tmpl_var 'INCL:/common/header'>
+
+<h3>Financial Report</h3>
+
+<form>
+<table width="80%">
+<tr>
+    <td> from </td>
+    <td> <input type=text name=from onclick="displayDatePicker('from', this, 'dmy', '-');" value=<tmpl_var from>></td>
+</tr>
+<tr>
+    <td> until </td>
+    <td> <input type=text name=until onclick="displayDatePicker('until', this, 'dmy', '-');"value=<tmpl_var until>></td>
+</tr>
+<tr>
+        <td>&nbsp;</td><td><input type=submit name=op value=submit></td>
+</tr>
+</table>
+</form>
+<br>
+
+<table class="list" border=0 cellspacing=2 cellpadding=0 width='60%'>
+<tr>
+	<th>no</th>
+	<th>description</th>
+	<th>amount</th>
+	<th>amount</th>
+</tr>
+<tr>
+	<td>1</td>
+	<td>sale</td>
+	<td></td>
+	<td align="right"><tmpl_var sale></td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>payable paid</td>
+	<td></td>
+	<td align="right"><tmpl_var payable_paid></td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>payable unpaid</td>
+	<td align="right"><tmpl_var payable_unpaid></td>
+	<td></td>
+</tr>
+<tr>
+	<td colspan=4>Payment</td>
+</tr>
+<tr>
+	<td>4</td>
+	<td>cash</td>
+	<td align="right"><tmpl_var cash_receipt></td>
+	<td></td>
+</tr>
+<tr>
+	<td>5</td>
+	<td>transfer</td>
+	<td align="right"><tmpl_var bank_receipt></td>
+	<td></td>
+</tr>
+<tr>
+	<td colspan=2>Total</td>
+	<td align="right"><tmpl_var sum_else></td>
+	<td align="right"><tmpl_var sum></td>
+</tr>
+</table>
+
+<tmpl_var 'INCL:/common/footer'>

@@ -1,0 +1,58 @@
+<title>Print Invoice</title>
+
+<p style="font-size:11px">PT. Karya Sejatera Abaditama</p>
+<p style="font-size:11px">Jl. Surya Utama II G/20 Sunrise Garden Kedoya Utara - Jakarta Barat 11520</p>
+
+<h3 align="center">INVOICE</h3>
+
+<input type="hidden" name="inv_id" value="<tmpl_var inv_id>">
+
+<table width="100%"><tr valign="top"><td><table align="center" style="font-size:11px" width="60%">
+<tr><td>outlet id</td><td>:</td><td><tmpl_var outlet_id></td></tr>
+<tr><td>outlet name</td><td>:</td><td><tmpl_var outlet_name></td></tr>
+<tr><td>invoice number</td><td>:</td><td><tmpl_var invoice_number></td></tr>
+</table></td>
+<td><table align="center" style="font-size:11px" width="80%">
+<tr><td>invoice date</td><td>:</td><td><tmpl_var inv_date></td></tr>
+<tr><td>invoice due</td><td>:</td><td><tmpl_var due_date></td></tr>
+<tr><td>sum invoice</td><td>:</td><td><tmpl_var amount></td></tr>
+</table></td>
+</tr></table>
+<br>
+<table width="80%"  align="center" style="font-size:11px" border="0px" cellpadding="1px" cellspacing="1px">
+	<tr>
+		<th align="left">no</th>
+		<th align="left">trans id</th>
+		<th align="left">stock ref name</th>
+		<th align="right">qty</th>
+		<th align="right">amount</th>
+	</tr>
+	<tmpl_loop list>
+	<tr>
+		<td><tmpl_var _seq></td>
+		<td><tmpl_var trans_id></td>
+		<td><tmpl_var stock_ref_name></td>
+		<td align="right"><tmpl_var topup_qty></td>
+		<td align="right"><tmpl_var mutation></td>
+	</tr>
+	</tmpl_loop>
+	<tr><b>
+		<td colspan="2">sum</td>
+		<td colspan="3" align="right"><tmpl_var amount></td></b>
+	</tr>
+	</table>
+<br>
+<table width="80%"  align="center" style="font-size:11px" border="0px" cellpadding="1px" cellspacing="1px">
+	<tr align="center">
+		<td width="300px">canvasser</td>
+		<td>admin</td>
+	</tr>
+</table>
+<br><br><br>
+<table width="80%"  align="center" style="font-size:11px" border="0px" cellpadding="1px" cellspacing="1px">
+	<tr align="center">
+		<td width="300px"><u><tmpl_var canvasser></u></td>
+		<td><u><tmpl_var admin></u></td>
+	</tr>
+</table>
+
